@@ -10,10 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("welcomePage.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("customerManagerPage.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("addNewCustomer.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
         primaryStage.setTitle("Welcome to Dunrite!");
         primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();

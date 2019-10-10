@@ -6,27 +6,29 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.customerManagerController">
+<AnchorPane prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.jobManagerController">
    <children>
       <TableView editable="true" layoutY="116.0" prefHeight="200.0" prefWidth="604.0">
         <columns>
           <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="First Name" />
-            <TableColumn prefWidth="75.0" text="Last Name" />
-            <TableColumn prefWidth="75.0" text="Street" />
+          <TableColumn prefWidth="75.0" text="Address" />
             <TableColumn prefWidth="75.0" text="City" />
             <TableColumn prefWidth="75.0" text="State" />
             <TableColumn prefWidth="75.0" text="Zipcode" />
             <TableColumn prefWidth="75.0" text="Country" />
-            <TableColumn prefWidth="75.0" text="Phone" />
-            <TableColumn prefWidth="75.0" text="Email" />
-            <TableColumn prefWidth="75.0" text="Status" />
+            <TableColumn prefWidth="75.0" text="Start Date" />
+            <TableColumn prefWidth="75.0" text="End Date" />
+            <TableColumn prefWidth="75.0" text="Quote Date" />
+            <TableColumn prefWidth="75.0" text="Quote Expiration" />
+            <TableColumn prefWidth="75.0" text="Invoice Date" />
+            <TableColumn prefWidth="75.0" text="Job Status" />
+            <TableColumn prefWidth="75.0" text="Customer ID" />
         </columns>
       </TableView>
       <Button fx:id="homeButton" layoutX="29.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />
       <Button layoutX="532.0" layoutY="344.0" mnemonicParsing="false" text="Save" />
-      <Label layoutX="27.0" layoutY="27.0" text="Customer Manager" />
-      <Button fx:id="customerManagerAdd" layoutX="466.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleAddButtonAction" text="Add" />
+      <Label layoutX="27.0" layoutY="27.0" text="Job Manager" />
+      <Button fx:id="jobAdd" layoutX="466.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleAddButtonAction" text="Add" />
       <Button fx:id="customerManagerDelete" layoutX="522.0" layoutY="74.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>
