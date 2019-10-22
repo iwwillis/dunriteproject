@@ -6,13 +6,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainMenuController">
    <children>
-      <Button fx:id="customerButton" layoutX="142.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleCustomerManagerButtonAction" prefHeight="54.0" prefWidth="157.0" text="Customer" />
+      <Button fx:id="customerButton" layoutX="142.0" layoutY="86.0" mnemonicParsing="false" onAction="#handleCustomerSubmenuButtonAction" prefHeight="54.0" prefWidth="157.0" text="Customer" />
       <Button fx:id="jobButton" layoutX="327.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleJobManagerButtonAction" prefHeight="57.0" prefWidth="154.0" text="Jobs" />
       <Button fx:id="employeeButton" layoutX="144.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleEmployeeManagerButtonAction" prefHeight="57.0" prefWidth="154.0" text="Employees" />
       <Button fx:id="materialButton" layoutX="327.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleJobMaterialManagerButtonAction" prefHeight="57.0" prefWidth="154.0" text="Materials" />
       <Button fx:id="timesheetButton" layoutX="327.0" layoutY="228.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="154.0" text="Timesheet" />
-      <Button layoutX="236.0" layoutY="313.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="154.0" text="...For Future Use" />
+      <Button fx:id="incidentButton" layoutX="144.0" layoutY="310.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="154.0" text="Incidents" />
       <Button fx:id="vendorButton" layoutX="144.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleVendorManagerButtonAction" prefHeight="57.0" prefWidth="154.0" text="Vendor" />
       <Label layoutX="219.0" layoutY="39.0" text="Welcome To The Dunrite Database!" />
+      <Button fx:id="otherButton" layoutX="327.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleMiscellaneousButtonAction" prefHeight="57.0" prefWidth="154.0" text="Miscellaneous" />
    </children>
 </AnchorPane>

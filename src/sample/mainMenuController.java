@@ -13,9 +13,9 @@ import java.io.IOException;
 
 public class mainMenuController {
     @FXML
-    protected void handleCustomerManagerButtonAction(ActionEvent event) throws IOException {
+    protected void handleCustomerSubmenuButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("customerManagerPage.fxml"));
+        loader.setLocation(getClass().getResource("CustomerSubmenu.fxml"));
         Parent finalPageParent = loader.load();
 
         Scene viewFinalPageScene = new Scene(finalPageParent);
@@ -91,6 +91,23 @@ public class mainMenuController {
         window.show();
 
     }
+
+    @FXML
+    protected void handleMiscellaneousButtonAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("miscellaneousSubmenu.fxml"));
+        Parent finalPageParent = loader.load();
+
+        Scene viewFinalPageScene = new Scene(finalPageParent);
+
+        //mainMenuController controller = loader.getController();
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(viewFinalPageScene);
+        window.show();
+
+    }
+
 
 
 }
