@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="464.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.jobTaskRequiredSkillController">
+   <children>
+      <TabPane layoutY="65.0" prefHeight="372.0" prefWidth="668.0">
+         <tabs>
+            <Tab text="Job Task Required Skill Manager">
+               <content>
+                  <AnchorPane prefHeight="400.0" prefWidth="604.0">
+                     <children>
+                        <Button fx:id="saveButton" layoutX="551.0" layoutY="292.0" mnemonicParsing="false" text="Save" />
+                        <Label layoutX="27.0" layoutY="27.0" text="Job Task Required Skill Manager" />
+                        <Button fx:id="deleteButton" layoutX="474.0" layoutY="292.0" mnemonicParsing="false" text="Delete" />
+                        <TableView fx:id="jobTaskRequiredSkillTV" editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="614.0">
+                          <columns>
+                            <TableColumn fx:id="jobTaskRequiredIdColumn" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="dateAcquiredColumn" prefWidth="124.39999389648438" text="Date Acquired" />
+                              <TableColumn fx:id="dateFinishedColumn" prefWidth="97.19999694824219" text="Date Finished" />
+                              <TableColumn fx:id="jobTaskAssignmentColumn" prefWidth="142.79998779296875" text="Job Task Assignment ID" />
+                              <TableColumn fx:id="employeeRequiredSkillIdColumn" prefWidth="171.5999755859375" text="Employee Required Skill ID" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Add New Job Task Required Skill">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="739.0">
+                     <children>
+                        <Label layoutX="80.0" layoutY="58.0" text="Date Acquired" />
+                        <Label layoutX="366.0" layoutY="58.0" text="Date Finished" />
+                        <Label layoutX="359.0" layoutY="108.0" text="Employee Required Skill ID" />
+                        <Label layoutX="65.0" layoutY="108.0" text="Job Task Assignment ID" />
+                        <Button fx:id="addButton" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" text="Add" />
+                        <DatePicker fx:id="dateAcquiredDP" layoutX="167.0" layoutY="54.0" />
+                        <DatePicker fx:id="dateFinishedDP" layoutX="448.0" layoutY="54.0" />
+                        <ChoiceBox fx:id="jobTaskAssignmentIdCB" layoutX="197.0" layoutY="104.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="employeeRequiredSkillIdCB" layoutX="504.0" layoutY="104.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button fx:id="homeButton" layoutX="590.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home" />
+      <Button fx:id="backButton" layoutX="509.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+   </children>
+</AnchorPane>

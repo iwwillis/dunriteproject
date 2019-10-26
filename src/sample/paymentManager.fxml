@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="464.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.paymentManagerController">
+   <children>
+      <TabPane layoutY="65.0" prefHeight="372.0" prefWidth="1073.0">
+         <tabs>
+            <Tab text="Payment Manager">
+               <content>
+                  <AnchorPane prefHeight="400.0" prefWidth="604.0">
+                     <children>
+                        <Button fx:id="saveButton" layoutX="690.0" layoutY="292.0" mnemonicParsing="false" text="Save" />
+                        <Label layoutX="27.0" layoutY="27.0" text="Payment Manager" />
+                        <Button fx:id="deleteButton" layoutX="613.0" layoutY="292.0" mnemonicParsing="false" text="Delete" />
+                        <TableView fx:id="paymentTV" editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="1054.0">
+                          <columns>
+                            <TableColumn fx:id="paymentIdColumn" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="paymentDateColumn" prefWidth="75.0" text="Date" />
+                              <TableColumn fx:id="paymentAmountColumn" prefWidth="75.0" text="Amount" />
+                              <TableColumn fx:id="paymentRemainingColumn" prefWidth="75.0" text="Remaining" />
+                              <TableColumn fx:id="paymentTermsColumn" prefWidth="75.0" text="Terms" />
+                              <TableColumn fx:id="paymentMethodColumn" prefWidth="75.0" text="Method" />
+                              <TableColumn fx:id="jobNumberColumn" prefWidth="75.0" text="Job Number" />
+                              <TableColumn fx:id="validationCodeColumn" prefWidth="124.79998779296875" text="Validation Code" />
+                              <TableColumn fx:id="paymentMethodIdColumn" prefWidth="126.79998779296875" text="Payment Method ID" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Add New Payment">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="80.0" layoutY="58.0" text="Payment Date" />
+                        <Label layoutX="366.0" layoutY="58.0" text="Payment Amount" />
+                        <Label layoutX="385.0" layoutY="108.0" text="Payment Terms" />
+                        <Label layoutX="80.0" layoutY="108.0" text="Payment Remaining" />
+                        <TextField fx:id="paymentAmountTF" layoutX="472.0" layoutY="54.0" />
+                        <TextField fx:id="employeeAddressTF" layoutX="195.0" layoutY="104.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextField fx:id="paymentTermsTF" layoutX="472.0" layoutY="104.0" />
+                        <Label layoutX="80.0" layoutY="156.0" text="Payment Method" />
+                        <TextField fx:id="paymentMethodTF" layoutX="183.0" layoutY="152.0" />
+                        <Label layoutX="344.0" layoutY="156.0" text="Job Number" />
+                        <ChoiceBox fx:id="jobNumberCB" layoutX="426.0" layoutY="152.0" prefWidth="150.0" />
+                        <Label layoutX="70.0" layoutY="212.0" text="Validation Code" />
+                        <TextField fx:id="validationCodeTF" layoutX="169.0" layoutY="208.0" />
+                        <Label layoutX="353.0" layoutY="212.0" text="Payment Method ID" />
+                        <Button fx:id="addButton" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" text="Add" />
+                        <DatePicker fx:id="paymentDateDP" layoutX="156.0" layoutY="54.0" />
+                        <ChoiceBox fx:id="paymentMethodIdCB" layoutX="471.0" layoutY="208.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button fx:id="homeButton" layoutX="690.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home" />
+      <Button fx:id="backButton" layoutX="612.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+   </children>
+</AnchorPane>

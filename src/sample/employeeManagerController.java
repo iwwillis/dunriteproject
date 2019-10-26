@@ -13,8 +13,23 @@ import java.io.IOException;
 public class employeeManagerController {
 
     @FXML
-    public void handleHomeButtonAction(ActionEvent event) throws IOException {
+    protected void handleBackButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("employeeSubmenu.fxml"));
+        Parent finalPageParent = loader.load();
 
+        Scene viewFinalPageScene = new Scene(finalPageParent);
+
+        //mainMenuController controller = loader.getController();
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(viewFinalPageScene);
+        window.show();
+
+    }
+
+    @FXML
+    protected void handleHomeButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("mainMenu.fxml"));
         Parent finalPageParent = loader.load();
@@ -26,20 +41,7 @@ public class employeeManagerController {
 
         window.setScene(viewFinalPageScene);
         window.show();
+
     }
 
-    @FXML
-    public void handleAddButtonAction(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("addNewEmployee.fxml"));
-        Parent finalPageParent = loader.load();
-
-        Scene viewFinalPageScene = new Scene(finalPageParent);
-
-        //mainMenuController controller = loader.getController();
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(viewFinalPageScene);
-        window.show();
-    }
 }

@@ -4,13 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.customerSubmenuController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.incidentSubmenuController">
    <children>
-      <Button fx:id="customerManagerButton" layoutX="141.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerManagerButtonAction" prefHeight="69.0" prefWidth="143.0" text="Customer Manager" />
-      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
-      <Button fx:id="addCustomerTypeButton" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerTypeButtonAction" prefHeight="69.0" prefWidth="143.0" text="Customer Type" />
-      <Button fx:id="addCustomerStatusButton" layoutX="141.0" layoutY="181.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="Customer Status" />
-      <Button fx:id="customerIncidentsButton" layoutX="300.0" layoutY="181.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="Customer Incidents" />
+      <Button fx:id="employeeIncidentButton" layoutX="56.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleEmployeeIncidentButton" prefHeight="69.0" prefWidth="143.0" text="Employee Incident" />
+      <Button fx:id="backButton" layoutX="279.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button fx:id="addCustomerTypeButton" layoutX="227.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleCustomerIncidentButton" prefHeight="69.0" prefWidth="143.0" text="Customer Incident" />
+      <Button fx:id="addCustomerStatusButton" layoutX="401.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleTaskIncidentButton" prefHeight="69.0" prefWidth="143.0" text="Task Incident" />
       <Label layoutX="255.0" layoutY="38.0" text="Manage Incident" />
    </children>
 </AnchorPane>

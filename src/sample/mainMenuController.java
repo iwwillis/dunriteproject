@@ -29,9 +29,9 @@ public class mainMenuController {
     }
 
     @FXML
-    protected void handleJobManagerButtonAction(ActionEvent event) throws IOException {
+    protected void handleJobSubmenuButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("jobManagerPage.fxml"));
+        loader.setLocation(getClass().getResource("jobSubmenu.fxml"));
         Parent finalPageParent = loader.load();
 
         Scene viewFinalPageScene = new Scene(finalPageParent);
@@ -45,9 +45,9 @@ public class mainMenuController {
     }
 
     @FXML
-    protected void handleVendorManagerButtonAction(ActionEvent event) throws IOException {
+    protected void handleVendorSubmenuAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("vendorManagerPage.fxml"));
+        loader.setLocation(getClass().getResource("vendorSubmenu.fxml"));
         Parent finalPageParent = loader.load();
 
         Scene viewFinalPageScene = new Scene(finalPageParent);
@@ -61,9 +61,9 @@ public class mainMenuController {
     }
 
     @FXML
-    protected void handleEmployeeManagerButtonAction(ActionEvent event) throws IOException {
+    protected void handleEmployeeSubmenuButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("employeeManagerPage.fxml"));
+        loader.setLocation(getClass().getResource("employeeSubmenu.fxml"));
         Parent finalPageParent = loader.load();
 
         Scene viewFinalPageScene = new Scene(finalPageParent);
@@ -77,9 +77,25 @@ public class mainMenuController {
     }
 
     @FXML
-    protected void handleJobMaterialManagerButtonAction(ActionEvent event) throws IOException {
+    protected void handleMaterialSubmenuButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("jobMaterialManagerPage.fxml"));
+        loader.setLocation(getClass().getResource("materialSubmenu.fxml"));
+        Parent finalPageParent = loader.load();
+
+        Scene viewFinalPageScene = new Scene(finalPageParent);
+
+        //mainMenuController controller = loader.getController();
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(viewFinalPageScene);
+        window.show();
+
+    }
+
+    @FXML
+    protected void handleIncidentSubmenuButtonAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("incidentSubmenu.fxml"));
         Parent finalPageParent = loader.load();
 
         Scene viewFinalPageScene = new Scene(finalPageParent);

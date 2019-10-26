@@ -6,11 +6,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.miscellaneousSubmenuController">
    <children>
-      <Button fx:id="customerManagerButton" layoutX="141.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleStateTerritoryButton" prefHeight="69.0" prefWidth="143.0" text="State/Territory" />
-      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
-      <Button fx:id="addCustomerTypeButton" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCountryButton" prefHeight="69.0" prefWidth="143.0" text="Country" />
-      <Button fx:id="unitButton" layoutX="141.0" layoutY="181.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="Unit" />
-      <Button fx:id="customerIncidentsButton" layoutX="300.0" layoutY="181.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="Future Use" />
+      <Button fx:id="stateTerritoryButton" layoutX="141.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleStateTerritoryButton" prefHeight="69.0" prefWidth="143.0" text="State/Territory" />
+      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button fx:id="countryButton" layoutX="300.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleCountryButton" prefHeight="69.0" prefWidth="143.0" text="Country" />
+      <Button fx:id="paymentMethodButton" layoutX="309.0" layoutY="301.0" mnemonicParsing="false" onAction="#handlePaymentMethodButton" prefHeight="69.0" prefWidth="143.0" text="Payment Method" />
+      <Button fx:id="timesheetButton" layoutX="141.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleTimesheetButton" prefHeight="69.0" prefWidth="143.0" text="Timesheet" />
       <Label layoutX="239.0" layoutY="41.0" text="Manage Miscellaneous" />
+      <Button fx:id="jobTimesheetButton" layoutX="300.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleJobTimesheetButton" prefHeight="69.0" prefWidth="143.0" text="Job Timesheet" />
+      <Button fx:id="unitButton" layoutX="228.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleUnitButton" prefHeight="69.0" prefWidth="143.0" text="Unit" />
+      <Button fx:id="paymentButton" layoutX="141.0" layoutY="301.0" mnemonicParsing="false" onAction="#handlePaymentButton" prefHeight="69.0" prefWidth="143.0" text="Payment" />
    </children>
 </AnchorPane>

@@ -4,14 +4,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.customerSubmenuController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.employeeSubmenuController">
    <children>
-      <Button fx:id="employeeManagerButton" layoutX="142.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerManagerButtonAction" prefHeight="69.0" prefWidth="143.0" text="Employee Manager" />
-      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
-      <Button fx:id="employeeTypeButton" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerTypeButtonAction" prefHeight="69.0" prefWidth="143.0" text="Employee Type" />
-      <Button fx:id="employeeStatusButton" layoutX="141.0" layoutY="181.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="Employee Status" />
-      <Button fx:id="employeeTeamRole" layoutX="299.0" layoutY="181.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="Employee Team Role" />
-      <Label layoutX="249.0" layoutY="38.0" text="Manage Employees" />
-      <Button fx:id="teamRoleButotn" layoutX="213.0" layoutY="276.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="143.0" text="Team Role" />
+      <Button fx:id="employeeManagerButton" layoutX="141.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleEmployeeManagerButton" prefHeight="69.0" prefWidth="143.0" text="Employee Manager" />
+      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button fx:id="employeeTypeButton" layoutX="299.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleEmployeeTypeButton" prefHeight="69.0" prefWidth="143.0" text="Employee Type" />
+      <Button fx:id="employeeStatusButton" layoutX="141.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleEmployeeStatusButton" prefHeight="69.0" prefWidth="143.0" text="Employee Status" />
+      <Button fx:id="employeeTeamRole" layoutX="299.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleEmployeeTeamRoleButton" prefHeight="69.0" prefWidth="143.0" text="Employee Team Role" />
+      <Label layoutX="248.0" layoutY="21.0" text="Manage Employees" />
+      <Button fx:id="employeeRequiredSkillButton" layoutX="141.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleEmployeeRequiredSkillButton" prefHeight="69.0" prefWidth="143.0" text="Employee Required Skill" />
+      <Button fx:id="teamRoleButton" layoutX="299.0" layoutY="237.0" mnemonicParsing="false" onAction="#teamRoleButton" prefHeight="69.0" prefWidth="143.0" text="Team Role" />
+      <Button fx:id="skillButton" layoutX="220.0" layoutY="324.0" mnemonicParsing="false" onAction="#skillButton" prefHeight="69.0" prefWidth="143.0" text="Skill" />
    </children>
 </AnchorPane>

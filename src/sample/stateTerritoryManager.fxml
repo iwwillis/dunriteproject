@@ -23,7 +23,9 @@
                   </TableView>
                   <Label layoutX="14.0" layoutY="21.0" text="State/Territory Manager" />
                   <Button fx:id="saveButton" layoutX="357.0" layoutY="278.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="41.0" text="Save" />
-                  <Button fx:id="homeButton" layoutX="354.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />
+                  <Button fx:id="homeButton" layoutX="354.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home" />
+                  <Button fx:id="backButton" layoutX="357.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+                  <Button fx:id="deleteButton" layoutX="352.0" layoutY="237.0" mnemonicParsing="false" text="Delete" />
                </children></AnchorPane>
       </content>
     </Tab>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.skillManagerController">
+   <children>
+      <TabPane layoutY="73.0" prefHeight="326.0" prefWidth="518.0">
+         <tabs>
+            <Tab text="Skill Manager">
+               <content>
+                  <AnchorPane prefHeight="317.0" prefWidth="604.0">
+                     <children>
+                        <TableView editable="true" prefHeight="225.0" prefWidth="451.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ID" />
+                              <TableColumn prefWidth="99.60003662109375" text="Skill Name" />
+                              <TableColumn prefWidth="106.0" text="Description" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="saveSkill" layoutX="242.0" layoutY="234.0" mnemonicParsing="false" text="Save" />
+                        <Button fx:id="skillDelete" layoutX="115.0" layoutY="234.0" mnemonicParsing="false" text="Delete" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Add Skill">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="67.0" layoutY="49.0" text="Skill Name:" />
+                        <Label layoutX="67.0" layoutY="110.0" text="Skill Description:" />
+                        <Button fx:id="addButton" layoutX="178.0" layoutY="205.0" mnemonicParsing="false" text="Add" />
+                        <TextField fx:id="skillNameTF" layoutX="216.0" layoutY="45.0" />
+                        <TextField fx:id="skillDescriptionTF" layoutX="216.0" layoutY="106.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Label layoutX="27.0" layoutY="27.0" text="Skill Manager" />
+      <Button fx:id="homeButton" layoutX="419.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home" />
+      <Button fx:id="backButton" layoutX="354.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+   </children>
+</AnchorPane>
