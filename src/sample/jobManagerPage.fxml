@@ -30,7 +30,7 @@
                               <TableColumn fx:id="startDateColumn" prefWidth="75.0" text="Start Date" />
                               <TableColumn fx:id="endDateColumn" prefWidth="75.0" text="End Date" />
                               <TableColumn fx:id="quoteDateColumn" prefWidth="75.0" text="Quote Date" />
-                              <TableColumn fx:id="expirationDateColumn" prefWidth="75.0" text="Expiration Date" />
+                              <TableColumn fx:id="expirationDateColumn" prefWidth="75.0" text="Expiration" />
                               <TableColumn fx:id="invoiceDateColumn" prefWidth="75.0" text="Invoice Date" />
                               <TableColumn fx:id="jobSizeIdColumn" prefWidth="75.0" text="Job Size ID" />
                               <TableColumn fx:id="jobStatusIdColumn" prefWidth="75.0" text="Job Status ID" />

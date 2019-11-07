@@ -70,6 +70,8 @@ public class customerSubmenuController {
         //mainMenuController controller = loader.getController();
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
+        window.setMaximized(false);
+        window.setMaximized(true);
         window.setScene(viewFinalPageScene);
         window.show();
 

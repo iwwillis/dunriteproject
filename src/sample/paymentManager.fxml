@@ -12,16 +12,16 @@
 
 <AnchorPane prefHeight="464.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.paymentManagerController">
    <children>
-      <TabPane layoutY="65.0" prefHeight="372.0" prefWidth="1073.0">
+      <TabPane fx:id="paymentTabPane" layoutY="65.0" prefHeight="372.0" prefWidth="1073.0">
          <tabs>
-            <Tab text="Payment Manager">
+            <Tab fx:id="paymentManagerTab" text="Payment Manager">
                <content>
                   <AnchorPane prefHeight="400.0" prefWidth="604.0">
                      <children>
-                        <Button fx:id="saveButton" layoutX="690.0" layoutY="292.0" mnemonicParsing="false" text="Save" />
+                        <Button fx:id="editButton" layoutX="690.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit" />
                         <Label layoutX="27.0" layoutY="27.0" text="Payment Manager" />
                         <Button fx:id="deleteButton" layoutX="613.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
-                        <TableView fx:id="paymentTV" editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="1054.0">
+                        <TableView fx:id="paymentTV" editable="true" layoutX="-2.0" layoutY="70.0" onSort="#handleDeleteButton" prefHeight="200.0" prefWidth="1054.0">
                           <columns>
                             <TableColumn fx:id="paymentIdColumn" prefWidth="75.0" text="ID" />
                             <TableColumn fx:id="paymentDateColumn" prefWidth="75.0" text="Date" />
@@ -38,7 +38,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Add New Payment">
+            <Tab fx:id="switchPaymentTab" text="Add New Payment">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -49,18 +49,18 @@
                         <TextField fx:id="paymentAmountTF" layoutX="784.0" layoutY="54.0" />
                         <TextField fx:id="paymentRemainingTF" layoutX="195.0" layoutY="104.0" prefHeight="25.0" prefWidth="149.0" />
                         <TextField fx:id="paymentTermsTF" layoutX="472.0" layoutY="104.0" />
-                        <Label layoutX="80.0" layoutY="156.0" text="Payment Method" />
-                        <TextField fx:id="paymentMethodTF" layoutX="183.0" layoutY="152.0" />
                         <Label layoutX="344.0" layoutY="156.0" text="Job Number" />
                         <Label layoutX="70.0" layoutY="212.0" text="Validation Code" />
                         <TextField fx:id="validationCodeTF" layoutX="169.0" layoutY="208.0" />
                         <Label layoutX="353.0" layoutY="212.0" text="Payment Method ID" />
-                        <Button fx:id="addPaymentButton" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add" />
+                        <Button fx:id="addPaymentButton" layoutX="495.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add" />
                         <DatePicker fx:id="paymentDateDP" layoutX="156.0" layoutY="54.0" />
                         <Label layoutX="363.0" layoutY="58.0" text="Original Amount" />
                         <TextField fx:id="originalAmountTF" layoutX="467.0" layoutY="54.0" prefHeight="25.0" prefWidth="94.0" />
                         <TextField fx:id="jobNumberPaymentRefTF" layoutX="440.0" layoutY="152.0" />
                         <TextField fx:id="paymentMethodIdPaymentRefTF" layoutX="472.0" layoutY="208.0" />
+                        <Button fx:id="cancelPayment" layoutX="260.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel" />
+                        <Button fx:id="savePayment" layoutX="377.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
                      </children>
                   </AnchorPane>
               </content>

@@ -40,6 +40,8 @@ public class employeeSubmenuController {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewFinalPageScene);
+        window.setMaximized(false);
+        window.setMaximized(true);
         window.show();
 
     }
@@ -132,10 +134,10 @@ public class employeeSubmenuController {
 
         Scene viewFinalPageScene = new Scene(finalPageParent);
 
-        //mainMenuController controller = loader.getController();
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewFinalPageScene);
+        window.setMaximized(true);
         window.show();
 
     }
