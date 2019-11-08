@@ -20,12 +20,12 @@
                     <columns>
                       <TableColumn prefWidth="150.40000009536743" text="Country_ID">
                            <styleClass>
-                              <String fx:value="tealbg" />
+                              <String fx:value="tealbg2" />
                               <String fx:value="whitetxt" />
                            </styleClass></TableColumn>
                       <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Country Name">
                            <styleClass>
-                              <String fx:value="tealbg" />
+                              <String fx:value="tealbg2" />
                               <String fx:value="whitetxt" />
                            </styleClass></TableColumn>
                     </columns>

@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.customerSubmenuController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.customerSubmenuController">
    <children>
-      <Button fx:id="customerManagerButton" layoutX="141.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerManagerButton" prefHeight="69.0" prefWidth="143.0" text="Customer Manager" />
-      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
-      <Button fx:id="customerTypeButton" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerTypeButton" prefHeight="69.0" prefWidth="143.0" text="Customer Type" />
-      <Button fx:id="customerStatusButton" layoutX="219.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleCustomerStatusButton" prefHeight="69.0" prefWidth="143.0" text="Customer Status" />
-      <Label layoutX="249.0" layoutY="38.0" text="Manage Customers" />
+      <Button fx:id="customerManagerButton" layoutX="141.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerManagerButton" prefHeight="69.0" prefWidth="143.0" text="Customer Manager">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="customerTypeButton" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleCustomerTypeButton" prefHeight="69.0" prefWidth="143.0" text="Customer Type">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="customerStatusButton" layoutX="219.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleCustomerStatusButton" prefHeight="69.0" prefWidth="143.0" text="Customer Status">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Label layoutX="249.0" layoutY="38.0" styleClass="tealtxt" text="Manage Customers" />
    </children>
 </AnchorPane>
