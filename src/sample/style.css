@@ -19,9 +19,12 @@
 }
 
 
-
 .tealbg {
     -fx-background-color: #01a388;
+}
+
+.tealbg2 {
+    -fx-background-color: #b2d8d8;
 }
 
 .redbg {
