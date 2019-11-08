@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="435.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.stateTerritoryManagerController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="435.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.stateTerritoryManagerController">
     <tabs>
         <Tab text="Job Task Incident Manager">
             <content>
@@ -18,18 +19,34 @@
                     <children>
                         <TableView layoutX="-4.0" layoutY="49.0" prefHeight="324.0" prefWidth="336.0">
                             <columns>
-                                <TableColumn prefWidth="150.40000009536743" text="Job_Task_Incident_Number" />
-                                <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Task_Incident_Date" />
+                                <TableColumn prefWidth="150.40000009536743" styleClass="tealbg2" text="Job_Task_Incident_Number" />
+                                <TableColumn minWidth="0.0" prefWidth="182.39999389648438" styleClass="tealbg2" text="Task_Incident_Date" />
                                 <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Employee_ID" />
                                 <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Task_Incidental_Number" />
                         <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Job_Task_Assignment_ID" />
                             </columns>
                         </TableView>
-                        <Label layoutX="14.0" layoutY="21.0" text="Job Task Incident Manager" />
-                        <Button fx:id="saveButton" layoutX="358.0" layoutY="331.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="41.0" text="Save" />
-                        <Button fx:id="homeButton" layoutX="354.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />
-                        <Button fx:id="backButton" layoutX="354.0" layoutY="73.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" text="Back" />
-                  <Button fx:id="deleteButton" layoutX="353.0" layoutY="281.0" mnemonicParsing="false" text="Delete" />
+                        <Label layoutX="14.0" layoutY="21.0" styleClass="tealtxt" text="Job Task Incident Manager" />
+                        <Button fx:id="saveButton" layoutX="358.0" layoutY="331.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="41.0" text="Save">
+                     <styleClass>
+                        <String fx:value="whitebg" />
+                        <String fx:value="redtxt" />
+                     </styleClass></Button>
+                        <Button fx:id="homeButton" layoutX="354.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home">
+                     <styleClass>
+                        <String fx:value="redbg" />
+                        <String fx:value="whitetxt" />
+                     </styleClass></Button>
+                        <Button fx:id="backButton" layoutX="354.0" layoutY="73.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" text="Back">
+                     <styleClass>
+                        <String fx:value="redbg" />
+                        <String fx:value="whitetxt" />
+                     </styleClass></Button>
+                  <Button fx:id="deleteButton" layoutX="353.0" layoutY="281.0" mnemonicParsing="false" text="Delete">
+                     <styleClass>
+                        <String fx:value="whitebg" />
+                        <String fx:value="redtxt" />
+                     </styleClass></Button>
                     </children></AnchorPane>
             </content>
         </Tab>
