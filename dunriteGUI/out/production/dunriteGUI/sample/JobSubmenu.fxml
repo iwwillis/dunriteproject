@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.jobSubmenuController">
+   <children>
+      <Button fx:id="jobManagerButton" layoutX="140.0" layoutY="100.0" mnemonicParsing="false" onAction="#handlejobManagerButton" prefHeight="69.0" prefWidth="143.0" text="Job Manager">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="jobTypeButton" layoutX="299.0" layoutY="100.0" mnemonicParsing="false" onAction="#handlejobTypeButton" prefHeight="69.0" prefWidth="143.0" text="Job Type">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="jobSizeButton" layoutX="299.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleJobSizeButton" prefHeight="69.0" prefWidth="143.0" text="Job Size">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="jobTaskButton" layoutX="215.0" layoutY="269.0" mnemonicParsing="false" onAction="#handleJobTaskButton" prefHeight="69.0" prefWidth="143.0" text="Job Task">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Label layoutX="252.0" layoutY="39.0" styleClass="tealtxt" text="Manage Jobs" />
+      <Button fx:id="jobStatusButton" layoutX="140.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleJobStatusButton" prefHeight="69.0" prefWidth="143.0" text="Job Status">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+   </children>
+</AnchorPane>

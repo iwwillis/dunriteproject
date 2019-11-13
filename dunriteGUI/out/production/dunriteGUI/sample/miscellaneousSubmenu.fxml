@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.miscellaneousSubmenuController">
+   <children>
+      <Button fx:id="stateTerritoryButton" layoutX="141.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleStateTerritoryButton" prefHeight="69.0" prefWidth="143.0" text="State/Territory">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="countryButton" layoutX="300.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleCountryButton" prefHeight="69.0" prefWidth="143.0" text="Country">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="paymentMethodButton" layoutX="309.0" layoutY="301.0" mnemonicParsing="false" onAction="#handlePaymentMethodButton" prefHeight="69.0" prefWidth="143.0" text="Payment Method">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="timesheetButton" layoutX="141.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleTimesheetButton" prefHeight="69.0" prefWidth="143.0" text="Timesheet">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Label layoutX="239.0" layoutY="41.0" styleClass="tealtxt" text="Manage Miscellaneous" />
+      <Button fx:id="jobTimesheetButton" layoutX="300.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleJobTimesheetButton" prefHeight="69.0" prefWidth="143.0" text="Job Timesheet">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="unitButton" layoutX="228.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleUnitButton" prefHeight="69.0" prefWidth="143.0" text="Unit">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="paymentButton" layoutX="141.0" layoutY="301.0" mnemonicParsing="false" onAction="#handlePaymentButton" prefHeight="69.0" prefWidth="143.0" text="Payment">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+   </children>
+</AnchorPane>

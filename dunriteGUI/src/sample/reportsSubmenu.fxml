@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.reportsSubmenuController">
+   <children>
+      <Label layoutX="279.0" layoutY="41.0" styleClass="tealtxt" text="Reports" />
+      <Button fx:id="resolvedIncidentsButton" layoutX="92.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleResolvedReportButton" prefHeight="61.0" prefWidth="112.0" text="Resolved Employee Incidents" textAlignment="CENTER" wrapText="true">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="backButton" layoutX="522.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="jobsQuotingPending" layoutX="238.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleJobQuotingPendingButton" prefHeight="61.0" prefWidth="112.0" text="Jobs Needing to Quote" textAlignment="CENTER" wrapText="true">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass>
+      </Button>
+      <Button fx:id="pendingQuoteButton" layoutX="92.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleJobSchedulingPendingButton" prefHeight="61.0" prefWidth="112.0" text="Jobs Needing to Schedule" textAlignment="CENTER" wrapText="true">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass>
+      </Button>
+      <Button fx:id="jobSummaryButton" layoutX="238.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleJobSummaryButton" prefHeight="61.0" prefWidth="112.0" text="Job Summary">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass>
+      </Button>
+      <Button fx:id="daysToCompletion" layoutX="92.0" layoutY="263.0" mnemonicParsing="false" onAction="#daysToCompletionReportButton" prefHeight="61.0" prefWidth="112.0" text="Days to Completion" textAlignment="CENTER" wrapText="true">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass>
+      </Button>
+      <Button fx:id="outstandingPayment" layoutX="238.0" layoutY="263.0" mnemonicParsing="false" onAction="#outstandingPaymentButton" prefHeight="61.0" prefWidth="112.0" text="Outstanding Payment" textAlignment="CENTER" wrapText="true">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass>
+      </Button>
+      <Button fx:id="InvoiceButton" layoutX="371.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleInvoiceButton" prefHeight="61.0" prefWidth="112.0" text="Invoice" textAlignment="CENTER" wrapText="true">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass>
+      </Button>
+      <Button fx:id="quoteButton" layoutX="371.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleQuoteButton" prefHeight="61.0" prefWidth="112.0" text="Quote" textAlignment="CENTER" wrapText="true">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="435.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.taskIncidentManagerController">
+    <tabs>
+        <Tab text="Task Incident Manager">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="474.0">
+                    <children>
+                        <TableView layoutX="-4.0" layoutY="49.0" prefHeight="324.0" prefWidth="336.0">
+                            <columns>
+                                <TableColumn prefWidth="150.40000009536743" styleClass="tealbg2" text="Task_Incident_Number" />
+                                <TableColumn minWidth="0.0" prefWidth="182.39999389648438" styleClass="tealbg2" text="Task_Incident_Description" />
+                                <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Task_Incident_Resolution" />
+                                <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Task_Incidental_Folloup" />
+                        <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Task_Incident_Type_ID" />
+                        <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Task_Incident_Status_Type" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="14.0" layoutY="21.0" styleClass="tealtxt" text="Task Incident Manager" />
+                        <Button fx:id="saveButton" layoutX="358.0" layoutY="331.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="41.0" text="Save">
+                     <styleClass>
+                        <String fx:value="whitebg" />
+                        <String fx:value="redtxt" />
+                     </styleClass></Button>
+                        <Button fx:id="homeButton" layoutX="354.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home">
+                     <styleClass>
+                        <String fx:value="redbg" />
+                        <String fx:value="whitetxt" />
+                     </styleClass></Button>
+                        <Button fx:id="backButton" layoutX="354.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="25.0" prefWidth="49.0" text="Back">
+                     <styleClass>
+                        <String fx:value="redbg" />
+                        <String fx:value="whitetxt" />
+                     </styleClass></Button>
+                  <Button fx:id="deleteButton" layoutX="352.0" layoutY="277.0" mnemonicParsing="false" text="Delete">
+                     <styleClass>
+                        <String fx:value="whitebg" />
+                        <String fx:value="redtxt" />
+                     </styleClass></Button>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Add Task Incident">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="addNewStateTerritory" layoutX="587.0" layoutY="82.0" mnemonicParsing="false" text="Add" />
+                        <Label layoutX="134.0" layoutY="36.0" styleClass="tealtxt" text="Add Task Incident" />
+                        <TextField fx:id="txtTaskIncidentDescription" layoutX="204.0" layoutY="87.0" />
+                        <Label layoutX="60.0" layoutY="91.0" styleClass="tealtxt" text="Task Incident Description :" />
+                        <Label layoutX="70.0" layoutY="382.0" text="Customer Incident Type ID:" />
+                        <ChoiceBox fx:id="customerIncidentTypeIDCB" layoutX="411.0" layoutY="382.0" prefWidth="150.0" />
+                        <Label layoutX="70.0" layoutY="493.0" text="Customer Incident Status ID" />
+                        <ChoiceBox fx:id="customerIncidentStatusIDCB" layoutX="411.0" layoutY="493.0" prefWidth="150.0" />
+                  <TextField fx:id="txtTaskIncidentResolution" layoutX="204.0" layoutY="131.0" />
+                  <Label layoutX="64.0" layoutY="136.0" styleClass="tealtxt" text="Task Incident Resolution :" />
+                  <TextField fx:id="TaskIncidentFollowup" layoutX="204.0" layoutY="172.0" />
+                  <Label layoutX="71.0" layoutY="176.0" styleClass="tealtxt" text="Task Incident Followup :" />
+                  <Button fx:id="addButton" layoutX="185.0" layoutY="310.0" mnemonicParsing="false" text="Add">
+                     <styleClass>
+                        <String fx:value="whitebg" />
+                        <String fx:value="redtxt" />
+                     </styleClass></Button>
+                  <Label layoutX="77.0" layoutY="215.0" styleClass="tealtxt" text="Task Incident Type ID" />
+                  <Label layoutX="74.0" layoutY="253.0" styleClass="tealtxt" text="Task Incident Status ID" />
+                  <ChoiceBox fx:id="taskIncidentTypeIdCB" layoutX="203.0" layoutY="220.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="taskIncidentStatusIdCB" layoutX="203.0" layoutY="258.0" prefWidth="150.0" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="539.0" prefWidth="1049.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.jobManagerController">
+   <children>
+      <TabPane layoutY="65.0" prefHeight="372.0" prefWidth="1049.0">
+         <tabs>
+            <Tab text="Job Manager">
+               <content>
+                  <AnchorPane prefHeight="400.0" prefWidth="604.0">
+                     <children>
+                        <Label layoutX="27.0" layoutY="27.0" text="Job Manager" />
+                        <TableView fx:id="jobTV" editable="true" layoutY="27.0" prefHeight="278.0" prefWidth="1054.0">
+                          <columns>
+                            <TableColumn fx:id="jobNumberColumn" prefWidth="75.0" styleClass="tealbg2" text="ID" />
+                              <TableColumn fx:id="streetAddressColumn" prefWidth="75.0" styleClass="tealbg2" text="Street" />
+                              <TableColumn fx:id="jobCityColumn" prefWidth="75.0" styleClass="tealbg2" text="City" />
+                              <TableColumn fx:id="stateColumn" prefWidth="75.0" styleClass="tealbg2" text="State" />
+                              <TableColumn fx:id="jobZipcodeColumn" prefWidth="75.0" styleClass="tealbg2" text="Zipcode" />
+                              <TableColumn fx:id="countryColumn" prefWidth="75.0" styleClass="tealbg2" text="Country" />
+                              <TableColumn fx:id="startDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Start Date" />
+                              <TableColumn fx:id="endDateColumn" prefWidth="75.0" styleClass="tealbg2" text="End Date" />
+                              <TableColumn fx:id="quoteDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Quote Date" />
+                              <TableColumn fx:id="expirationDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Expiration" />
+                              <TableColumn fx:id="invoiceDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Invoice Date" />
+                              <TableColumn fx:id="jobSizeIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Job Size ID" />
+                              <TableColumn fx:id="jobStatusIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Job Status ID" />
+                              <TableColumn fx:id="customerIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Customer ID" />
+                              <TableColumn fx:id="jobTypeIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Job Type ID" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Add New Job">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="55.0" layoutY="46.0" styleClass="tealtxt" text="Street Address" />
+                        <TextField fx:id="jobStreetAddressTF" layoutX="147.0" layoutY="42.0" />
+                        <Label layoutX="337.0" layoutY="46.0" styleClass="tealtxt" text="City" />
+                        <TextField fx:id="jobCityTF" layoutX="376.0" layoutY="42.0" />
+                        <Label layoutX="569.0" layoutY="46.0" styleClass="tealtxt" text="State" />
+                        <ChoiceBox fx:id="stateCB" layoutX="605.0" layoutY="42.0" prefWidth="150.0" />
+                        <Label layoutX="72.0" layoutY="89.0" styleClass="tealtxt" text="Zipcode" />
+                        <TextField fx:id="jobZipcodeTF" layoutX="147.0" layoutY="93.0" />
+                        <Label layoutX="326.0" layoutY="89.0" styleClass="tealtxt" text="Country" />
+                        <ChoiceBox fx:id="countryCB" layoutX="376.0" layoutY="85.0" prefWidth="150.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button fx:id="homeButton" layoutX="958.0" layoutY="30.0" mnemonicParsing="false" text="Home">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="backButton" layoutX="864.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="deleteButton" layoutX="754.0" layoutY="486.0" mnemonicParsing="false" text="Delete">
+         <styleClass>
+            <String fx:value="redtxt" />
+            <String fx:value="whitebg" />
+         </styleClass></Button>
+      <Button fx:id="saveButton" layoutX="844.0" layoutY="486.0" mnemonicParsing="false" text="Save">
+         <styleClass>
+            <String fx:value="redtxt" />
+            <String fx:value="whitebg" />
+         </styleClass></Button>
+   </children>
+</AnchorPane>

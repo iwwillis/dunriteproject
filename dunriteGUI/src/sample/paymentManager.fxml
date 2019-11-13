@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="464.0" prefWidth="778.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.paymentManagerController">
+   <children>
+      <TabPane fx:id="paymentTabPane" layoutY="65.0" prefHeight="372.0" prefWidth="845.0">
+         <tabs>
+            <Tab fx:id="paymentManagerTab" text="Payment Manager">
+               <content>
+                  <AnchorPane prefHeight="400.0" prefWidth="604.0">
+                     <children>
+                        <Button fx:id="editButton" layoutX="690.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass></Button>
+                        <Label layoutX="27.0" layoutY="27.0" styleClass="tealtxt" text="Payment Manager" />
+                        <Button fx:id="deleteButton" layoutX="613.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass></Button>
+                        <TableView fx:id="paymentTV" editable="true" layoutX="-2.0" layoutY="70.0" onSort="#handleDeleteButton" prefHeight="200.0" prefWidth="1054.0" styleClass="whitebg">
+                          <columns>
+                            <TableColumn fx:id="paymentIdColumn" prefWidth="75.0" styleClass="tealbg2" text="ID" />
+                            <TableColumn fx:id="paymentDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Date" />
+                              <TableColumn fx:id="originalAmountColumn" prefWidth="115.99998474121094" styleClass="tealbg2" text="Original Amount" />
+                              <TableColumn fx:id="paymentAmountColumn" prefWidth="82.39996337890625" styleClass="tealbg2" text="Amount" />
+                              <TableColumn fx:id="paymentRemainingColumn" prefWidth="76.39996337890625" styleClass="tealbg2" text="Remaining" />
+                              <TableColumn fx:id="paymentTermsColumn" prefWidth="115.5999755859375" styleClass="tealbg2" text="Terms" />
+                              <TableColumn fx:id="validationCodeColumn" prefWidth="102.0" styleClass="tealbg2" text="Validation Code" />
+                              <TableColumn fx:id="jobNumberRefColumn" prefWidth="81.99993896484375" styleClass="tealbg2" text="Job Number" />
+                              <TableColumn fx:id="paymentMethodIdRefColumn" prefWidth="124.0" styleClass="tealbg2" text="Payment Method ID" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="switchPaymentTab" text="Add New Payment">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="674.0">
+                     <children>
+                        <Label layoutX="80.0" layoutY="58.0" styleClass="tealtxt" text="Payment Date" />
+                        <Label layoutX="71.0" layoutY="108.0" styleClass="tealtxt" text="Payment Amount" />
+                        <Label layoutX="76.0" layoutY="162.0" styleClass="tealtxt" text="Payment Terms" />
+                        <Label layoutX="365.0" layoutY="108.0" styleClass="tealtxt" text="Payment Remaining" />
+                        <TextField fx:id="paymentAmountTF" layoutX="195.0" layoutY="104.0" />
+                        <TextField fx:id="paymentRemainingTF" layoutX="479.0" layoutY="104.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextField fx:id="paymentTermsTF" layoutX="195.0" layoutY="166.0" />
+                        <Label layoutX="84.0" layoutY="212.0" styleClass="tealtxt" text="Job Number" />
+                        <Label layoutX="364.0" layoutY="162.0" styleClass="tealtxt" text="Validation Code" />
+                        <TextField fx:id="validationCodeTF" layoutX="472.0" layoutY="158.0" />
+                        <Label layoutX="353.0" layoutY="212.0" styleClass="tealtxt" text="Payment Method ID" />
+                        <Button fx:id="addPaymentButton" layoutX="495.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass></Button>
+                        <DatePicker fx:id="paymentDateDP" layoutX="195.0" layoutY="54.0" prefHeight="25.0" prefWidth="152.0" />
+                        <Label layoutX="373.0" layoutY="58.0" styleClass="tealtxt" text="Original Amount" />
+                        <TextField fx:id="originalAmountTF" layoutX="499.0" layoutY="54.0" prefHeight="25.0" prefWidth="94.0" />
+                        <TextField fx:id="jobNumberPaymentRefTF" layoutX="195.0" layoutY="208.0" />
+                        <TextField fx:id="paymentMethodIdPaymentRefTF" layoutX="472.0" layoutY="208.0" />
+                        <Button fx:id="cancelPayment" layoutX="260.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass></Button>
+                        <Button fx:id="savePayment" layoutX="377.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass></Button>
+                        <TextField fx:id="paymentNumberTF" layoutX="195.0" layoutY="14.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button fx:id="homeButton" layoutX="690.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="backButton" layoutX="612.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+   </children>
+</AnchorPane>

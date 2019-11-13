@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vendorSubmenuController">
+   <children>
+      <Button fx:id="vendorManagerButton" layoutX="150.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleVendorManagerButton" prefHeight="69.0" prefWidth="143.0" text="Vendor Manager">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="backButton" layoutX="498.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+         <styleClass>
+            <String fx:value="redbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Button fx:id="vendorStatusButton" layoutX="300.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleVendorStatusButton" prefHeight="69.0" prefWidth="143.0" text="Vendor Status">
+         <styleClass>
+            <String fx:value="tealbg" />
+            <String fx:value="whitetxt" />
+         </styleClass></Button>
+      <Label layoutX="249.0" layoutY="38.0" styleClass="tealtxt" text="Manage Vendors" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+.jfx-button {
+    -fx-opacity: 1;
+}
+
+.jfx-button:hover {
+    -fx-opacity: 0.9;
+}
+
+.tealtxt {
+    -fx-text-fill: #01a388;
+}
+
+.redtxt {
+    -fx-text-fill: #f05e23;
+}
+
+.whitetxt {
+    -fx-text-fill: #fff;
+}
+
+
+.tealbg {
+    -fx-background-color: #01a388;
+}
+
+.tealbg2 {
+    -fx-background-color: #b2d8d8;
+}
+
+.redbg {
+    -fx-background-color: #f05e23;
+}
+
+.whitebg {
+    -fx-background-color: #fff;
+}
+
+#this {
+    -fx-background-color: #fff;
+    -fx-text-fill: #01a388;
+}
