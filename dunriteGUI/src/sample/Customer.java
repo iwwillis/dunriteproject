@@ -55,7 +55,6 @@ public class Customer {
         return customerOrg;
     }
 
-
     public StringProperty getStreetAddress() {
         return streetAddress;
     }
@@ -77,11 +76,11 @@ public class Customer {
     }
 
     public StringProperty getCustomerEmail() {
-        return customerPhone;
+        return customerEmail;
     }
 
     public StringProperty getCustomerPhone() {
-        return customerEmail;
+        return customerPhone;
     }
 
 

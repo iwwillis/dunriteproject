@@ -19,8 +19,6 @@ public class employeeManagerController {
         Parent finalPageParent = loader.load();
 
         Scene viewFinalPageScene = new Scene(finalPageParent);
-
-        //mainMenuController controller = loader.getController();
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewFinalPageScene);
@@ -35,8 +33,6 @@ public class employeeManagerController {
         Parent finalPageParent = loader.load();
 
         Scene viewFinalPageScene = new Scene(finalPageParent);
-
-        //mainMenuController controller = loader.getController();
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(viewFinalPageScene);

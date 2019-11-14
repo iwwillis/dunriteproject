@@ -2,48 +2,48 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="824.0" prefWidth="609.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.employeeIncidentManagerController">
+<TabPane fx:id="employeeIncidentTP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="788.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.employeeIncidentManagerController">
   <tabs>
-    <Tab text="Employee Incident Manager">
+    <Tab fx:id="tabOne" text="Employee Incident Manager">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="474.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="795.0" prefWidth="816.0">
                <children>
-                  <TableView fx:id="employeeIncidentTV" layoutX="-4.0" layoutY="49.0" prefHeight="324.0" prefWidth="336.0">
+                  <TableView fx:id="employeeIncidentTV" layoutX="12.0" layoutY="50.0" prefHeight="324.0" prefWidth="771.0">
                     <columns>
-                      <TableColumn prefWidth="150.40000009536743" styleClass="tealbg2" text="Employee_Incident_Number" />
-                      <TableColumn minWidth="0.0" prefWidth="182.39999389648438" styleClass="tealbg2" text="Employee_Incident_Description" />
-                        <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Employee_Incident_Resolution" />
-                        <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Employee_Incident_Followup" />
-                        <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Employee_Incident_Type_ID" />
-                        <TableColumn minWidth="0.0" prefWidth="182.39999389648438" text="Employee_Incident_Status_ID" />
+                      <TableColumn fx:id="colOne" prefWidth="114.40002751350403" text="Incident Number" />
+                      <TableColumn fx:id="colTwo" minWidth="0.0" prefWidth="135.60000610351562" text="Description" />
+                        <TableColumn fx:id="colThree" minWidth="0.0" prefWidth="73.99993896484375" text="Resolution" />
+                        <TableColumn fx:id="colFour" minWidth="0.0" prefWidth="95.5999755859375" text="Followup" />
+                        <TableColumn fx:id="colFive" minWidth="0.0" prefWidth="170.00006103515625" text="Employee Incident Type ID" />
+                        <TableColumn fx:id="colSix" minWidth="0.0" prefWidth="171.5999755859375" text="Employee Incident Status ID" />
                     </columns>
                   </TableView>
                   <Label layoutX="14.0" layoutY="21.0" styleClass="tealtxt" text="Employee Incident Manager" />
-                  <Button fx:id="saveButton" layoutX="357.0" layoutY="278.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="41.0" text="Save">
+                  <Button fx:id="editButton" layoutX="688.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleEditButton" prefHeight="0.0" prefWidth="41.0" text="Edit">
                      <styleClass>
                         <String fx:value="whitebg" />
                         <String fx:value="redtxt" />
                      </styleClass></Button>
-                  <Button fx:id="homeButton" layoutX="354.0" layoutY="36.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home">
+                  <Button fx:id="homeButton" layoutX="685.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHomeButton" text="Home">
                      <styleClass>
                         <String fx:value="redbg" />
                         <String fx:value="whitetxt" />
                      </styleClass></Button>
-                  <Button fx:id="backButton" layoutX="358.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
+                  <Button fx:id="backButton" layoutX="610.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back">
                      <styleClass>
                         <String fx:value="redbg" />
                         <String fx:value="whitetxt" />
                      </styleClass></Button>
-                  <Button layoutX="353.0" layoutY="228.0" mnemonicParsing="false" text="Delete">
+                  <Button fx:id="deleteButton" layoutX="605.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete">
                      <styleClass>
                         <String fx:value="whitebg" />
                         <String fx:value="redtxt" />
@@ -51,26 +51,38 @@
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="Add Employee Incident">
+    <Tab fx:id="tabTwo" text="Add Employee Incident">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="134.0" layoutY="36.0" styleClass="tealtxt" text="Add Employee Incident" />
-                  <Button fx:id="addButton" layoutX="303.0" layoutY="534.0" mnemonicParsing="false" text="Add">
+                  <Button fx:id="addButton" layoutX="419.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add">
                      <styleClass>
                         <String fx:value="redbg" />
                         <String fx:value="whitetxt" />
                      </styleClass></Button>
-                  <TextField fx:id="employeeIncidentDescriptionTF" layoutX="275.0" layoutY="87.0" />
-                  <Label layoutX="70.0" layoutY="91.0" styleClass="tealtxt" text="Employee Incident Description" />
-                  <TextField fx:id="employeeIncidentResolutionTF" layoutX="267.0" layoutY="177.0" />
-                  <Label layoutX="70.0" layoutY="181.0" styleClass="tealtxt" text="Employee Incident Resolution" />
-                  <TextField fx:id="employeeIncidentFollowupTF" layoutX="275.0" layoutY="263.0" />
-                  <Label layoutX="70.0" layoutY="276.0" styleClass="tealtxt" text="Employee Incident Followup" />
-                  <Label layoutX="70.0" layoutY="373.0" styleClass="tealtxt" text="Employee Incident Type ID" />
-                  <ChoiceBox fx:id="employeeIncidentTypeIDCB" layoutX="266.0" layoutY="369.0" prefWidth="150.0" />
-                  <Label layoutX="77.0" layoutY="469.0" styleClass="tealtxt" text="Employee Incident Status ID" />
-                  <ChoiceBox fx:id="employeeIncidentStatusIDCB" layoutX="266.0" layoutY="465.0" prefWidth="150.0" />
+                  <Label layoutX="20.0" layoutY="39.0" styleClass="tealtxt" text="Employee Incident Description" />
+                  <Label layoutX="423.0" layoutY="39.0" styleClass="tealtxt" text="Employee Incident Resolution" />
+                  <Label layoutX="14.0" layoutY="181.0" styleClass="tealtxt" text="Employee Incident Followup" />
+                  <Label layoutX="423.0" layoutY="181.0" styleClass="tealtxt" text="Employee Incident Type ID" />
+                  <Label layoutX="419.0" layoutY="251.0" styleClass="tealtxt" text="Employee Incident Status ID" />
+                  <TextArea fx:id="descriptionTA" layoutX="14.0" layoutY="56.0" prefHeight="88.0" prefWidth="292.0" />
+                  <TextArea fx:id="resolutionTA" layoutX="423.0" layoutY="56.0" prefHeight="88.0" prefWidth="336.0" />
+                  <TextArea fx:id="followupTA" layoutX="14.0" layoutY="207.0" prefHeight="88.0" prefWidth="336.0" />
+                  <TextField fx:id="empIncidentTypeIdTF" layoutX="580.0" layoutY="177.0" />
+                  <TextField fx:id="empIncidentStatusIdTF" layoutX="580.0" layoutY="247.0" />
+                  <Button fx:id="cancelButton" layoutX="269.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel">
+                     <styleClass>
+                        <String fx:value="redbg" />
+                        <String fx:value="whitetxt" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="saveButton" layoutX="350.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
+                     <styleClass>
+                        <String fx:value="redbg" />
+                        <String fx:value="whitetxt" />
+                     </styleClass>
+                  </Button>
+                  <TextField fx:id="empIncidentTF" layoutX="20.0" layoutY="14.0" prefHeight="25.0" prefWidth="63.0" />
                </children></AnchorPane>
       </content>
     </Tab>

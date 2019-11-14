@@ -49,7 +49,7 @@ public class customerManagerPageController implements Initializable {
     @FXML private TextField customerCityTF;
     @FXML private ComboBox<Integer> customerStateCB;
     @FXML private TextField customerZipcodeTF;
-    @FXML private ComboBox<Integer> customerCountryCB;
+    @FXML private TextField customerCountryTF;
     @FXML private TextField phoneNumberTF;
     @FXML private TextField emailTF;
     @FXML private ComboBox<Integer> customerStatusIdCB;
@@ -58,7 +58,6 @@ public class customerManagerPageController implements Initializable {
     @FXML private TabPane customerTP;
     @FXML private Tab tabOne;
     @FXML private Tab tabTwo;
-    @FXML private Button editButton;
     @FXML private Button homeButton;
     @FXML private Button backButton;
     @FXML private Button cancelButton;
@@ -118,9 +117,13 @@ public class customerManagerPageController implements Initializable {
             organizationTF.setText(c.getCustomerOrg().get());
             customerAddressTF.setText(c.getStreetAddress().get());
             customerCityTF.setText(c.getCustomerCity().get());
-            customerStateCB.getSelectionModel().select(c.getStateId().get());
+            customerStateCB.getSelectionModel().select(c.getStateId().get()-1);
+            customerZipcodeTF.setText(c.getCustomerZipcode().get());
+            customerCountryTF.setText(Integer.toString(c.getCountryId().get()));
             phoneNumberTF.setText(c.getCustomerPhone().get());
-
+            emailTF.setText(c.getCustomerEmail().get());
+            customerStatusIdCB.getSelectionModel().select(c.getCustomerStatusId().get()-1);
+            customerTypeIdCB.getSelectionModel().select(c.getCustomerTypeId().get()-1);
 
             tabTwo.setText("Edit Customer");
             cancelButton.setVisible(true);
@@ -142,6 +145,69 @@ public class customerManagerPageController implements Initializable {
 
 
     }
+
+    @FXML
+    protected void handleSaveButton(ActionEvent event){
+        tabTwo.setText("Add New Customer");
+        try{
+
+            int cId = Integer.parseInt(customerIdTF.getText());
+            String first = firstNameTF.getText();
+            String last = lastNameTF.getText();
+            String org = organizationTF.getText();
+            String address = customerAddressTF.getText();
+            String city = customerCityTF.getText();
+            int stateId = customerStateCB.getValue();
+            String zipcode = customerZipcodeTF.getText();
+            int countryId = Integer.parseInt(customerCountryTF.getText());
+            String phoneNumber = phoneNumberTF.getText();
+            String email = emailTF.getText();
+            int customerStatus = customerStatusIdCB.getValue();
+            int customerType = customerTypeIdCB.getValue();
+
+            String SQL = "UPDATE CUSTOMER SET Customer_First_Name ='"+first+"', Customer_Last_Name ='"+last+"', " +
+                    "Customer_Organization= '"+org+"', Customer_Street_Address= '"+address+"', Customer_City='"+city+"', " +
+                    "State_ID="+stateId+", Customer_Zipcode= '"+zipcode+"', Country_ID="+countryId+", Customer_Phone_Number='"+phoneNumber+"'," +
+                    "Customer_Email_Address = '"+email+"', Customer_Status_ID="+customerStatus+",Customer_Type_ID="+customerType+" WHERE Customer_ID="+cId+";";
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Edit Record");
+            alert.setHeaderText("Are you sure want commit this edit?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get() == ButtonType.OK) {
+
+                db = new DBConnection();
+                pstmt = con.prepareStatement(SQL);
+                pstmt.executeUpdate();
+                confirmEdit();
+                clearFields();
+                refreshTable();
+                cancelButton.setVisible(false);
+                saveButton.setVisible(false);
+                addNewCustomer.setVisible(true);
+                homeButton.setDisable(false);
+                backButton.setDisable(false);
+                tabTwo.setText("Add New Customer");
+                customerTP.getSelectionModel().select(tabOne);
+                tabOne.setDisable(false);
+            } else if (option.get() == ButtonType.CANCEL) {
+
+            }
+
+        }
+        catch(Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Could not edit record!");
+            alert.showAndWait();
+        }
+        finally {
+            try { pstmt.close(); } catch (Exception e) { }
+        }
+    }
+
     @FXML
     protected void handleCancelButton(ActionEvent event)  {
 
@@ -166,13 +232,11 @@ public class customerManagerPageController implements Initializable {
         customerIdTF.setVisible(false);
 
         initStateIdCB();
-        customerStateCB.setVisibleRowCount(100);
-        initCountryIdCB();
-        customerCountryCB.setVisibleRowCount(100);
+        customerStateCB.setVisibleRowCount(10);
         initCustomerStatusIdCB();
         customerStatusIdCB.setVisibleRowCount(10);
         initCustomerTypeIdCB();
-        customerTypeIdCB.setVisibleRowCount(30);
+        customerTypeIdCB.setVisibleRowCount(10);
         refreshTable();
 
     }
@@ -187,7 +251,7 @@ public class customerManagerPageController implements Initializable {
             String city = customerCityTF.getText();
             int stateId = customerStateCB.getValue();
             String zipcode = customerZipcodeTF.getText();
-            int countryId = customerCountryCB.getValue();
+            int countryId = Integer.parseInt(customerCountryTF.getText());
             String phoneNumber = phoneNumberTF.getText();
             String email = emailTF.getText();
             int customerStatusId = customerStatusIdCB.getValue();
@@ -334,22 +398,6 @@ public class customerManagerPageController implements Initializable {
         customerStateCB.setItems(StateId);
     }
 
-    private void initCountryIdCB() {
-        db = new DBConnection();
-        CountryId = FXCollections.observableArrayList();
-        try {
-            con = db.getConnection();
-            ResultSet rs = con.createStatement().executeQuery("SELECT Country_ID FROM COUNTRY");
-            while (rs.next()) {
-                CountryId.add(rs.getInt(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        customerCountryCB.setItems(null);
-        customerCountryCB.setItems(CountryId);
-    }
-
     private void initCustomerStatusIdCB() {
         db = new DBConnection();
         customerStatusId = FXCollections.observableArrayList();
@@ -390,7 +438,7 @@ public class customerManagerPageController implements Initializable {
         customerCityTF.clear();
         customerStateCB.setValue(null);
         customerZipcodeTF.clear();
-        customerCountryCB.setValue(null);
+        customerCountryTF.clear();
         phoneNumberTF.clear();
         emailTF.clear();
         customerStatusIdCB.setValue(null);

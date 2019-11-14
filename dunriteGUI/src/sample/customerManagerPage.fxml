@@ -78,7 +78,7 @@
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
                            </styleClass></Button>
-                        <Button fx:id="saveButton" layoutX="368.0" layoutY="316.0" mnemonicParsing="false" text="Save">
+                        <Button fx:id="saveButton" layoutX="368.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
@@ -91,18 +91,12 @@
                            </styleClass>
                         </Button>
                         <ComboBox fx:id="customerStateCB" layoutX="740.0" layoutY="104.0" prefWidth="150.0" />
-                        <ComboBox fx:id="customerCountryCB" layoutX="483.0" layoutY="152.0" prefWidth="150.0" />
                         <ComboBox fx:id="customerTypeIdCB" layoutX="483.0" layoutY="261.0" prefWidth="150.0" />
                         <ComboBox fx:id="customerStatusIdCB" layoutX="191.0" layoutY="261.0" prefHeight="25.0" prefWidth="104.0" />
-                        <Button layoutX="643.0" layoutY="152.0" mnemonicParsing="false" text="Go">
-                           <styleClass>
-                              <String fx:value="whitebg" />
-                              <String fx:value="redtxt" />
-                           </styleClass>
-                        </Button>
                         <Label layoutX="660.0" layoutY="58.0" styleClass="tealtxt" text="Organization:" />
                         <TextField fx:id="organizationTF" layoutX="741.0" layoutY="54.0" />
                         <TextField fx:id="customerIdTF" layoutX="191.0" layoutY="14.0" />
+                        <TextField fx:id="customerCountryTF" layoutX="483.0" layoutY="152.0" />
                      </children>
                   </AnchorPane>
               </content>
