@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jobsNeedingScheduling" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="918e782b-bc02-4446-8e72-1ec197733e17">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Test2"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT 
+j.Job_Number AS 'Job Number',
+CONCAT(cust.Customer_First_Name,' ', cust.Customer_Last_Name) AS 'Customer',
+j.Job_Street_Address AS 'Address',
+j.Job_City AS 'City',
+st.State_Name AS 'State',
+j.Job_Zipcode AS 'Zipcode',
+c.Country_Abbreviation AS 'Country',
+FORMAT (j.Job_Start_Date, 'MM/dd/yyy', 'en-US') AS 'Start Date',
+FORMAT (j.Job_End_Date, 'MM/dd/yyy', 'en-US') AS 'End Date',
+FORMAT (j.Quote_Date, 'MM/dd/yyy', 'en-US') AS 'Quote Date',
+FORMAT (j.Quote_Expiration_Date, 'MM/dd/yyy', 'en-US') AS 'Quote Exp Date',
+FORMAT (j.Invoice_Date, 'MM/dd/yyy', 'en-US') AS 'Invoice Date',
+js.Job_Size AS 'Job Size',
+jst.Job_Status AS 'Job Status',
+jt.Job_Type AS 'Job Type'
+
+FROM (JOB j
+JOIN STATE_TERRITORY st ON st.State_ID = j.State_ID
+JOIN COUNTRY c ON c.Country_ID = j.Country_ID
+JOIN JOB_SIZE js ON js.Job_Size_ID = j.Job_Size_ID
+JOIN JOB_STATUS jst ON jst.Job_Status_ID = j.Job_Status_ID
+JOIN CUSTOMER cust ON cust.Customer_ID = j.Customer_ID
+JOIN JOB_TYPE jt ON jt.Job_Type_ID = j.Job_Type_ID)
+
+WHERE (j.Job_Status_ID = 12
+AND j.Job_Start_Date IS NULL
+AND j.Job_End_Date IS NULL);
+]]>
+	</queryString>
+	<field name="Job Number" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Job Number"/>
+	</field>
+	<field name="Customer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Customer"/>
+	</field>
+	<field name="Address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Address"/>
+	</field>
+	<field name="City" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="City"/>
+	</field>
+	<field name="State" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="State"/>
+	</field>
+	<field name="Zipcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Zipcode"/>
+	</field>
+	<field name="Country" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Country"/>
+	</field>
+	<field name="Start Date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Start Date"/>
+	</field>
+	<field name="End Date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="End Date"/>
+	</field>
+	<field name="Quote Date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quote Date"/>
+	</field>
+	<field name="Quote Exp Date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quote Exp Date"/>
+	</field>
+	<field name="Invoice Date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Invoice Date"/>
+	</field>
+	<field name="Job Size" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Job Size"/>
+	</field>
+	<field name="Job Status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Job Status"/>
+	</field>
+	<field name="Job Type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Job Type"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="10" width="293" height="30" uuid="4440cf5e-fd5b-4a1c-90ab-15e1aade0aec"/>
+				<textElement>
+					<font fontName="Arial Black" size="20"/>
+				</textElement>
+				<text><![CDATA[Jobs Needing Scheduling]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="40" height="30" uuid="f3e416e4-a028-41af-9863-0d342328591b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79909f52-ef61-44d6-89d9-487b2ce22e51"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[Job Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="60" height="30" uuid="ced1ea56-2579-410c-8784-bb6e85fccf37">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6daa40c4-3242-457b-8887-f7701cbdde1f"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[Customer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="0" width="40" height="30" uuid="d3087b85-ce4c-4619-af94-c98fa1463e9c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e098972-bae7-4146-ad8f-774c987a6e07"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="40" height="30" uuid="8d2c419e-d45d-4931-a90f-ac361c39d412">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd72a6c6-e8a0-4f93-89a9-b39fdf5c2540"/>
+				</reportElement>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="40" height="30" uuid="1d2f2c18-1e41-4eda-94f7-ab9bc9d6f45a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="022f7396-f344-4705-bd9b-cebec4d0a82f"/>
+				</reportElement>
+				<text><![CDATA[Zipcode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="50" height="30" uuid="64e4675d-8c34-41d2-a938-577561bde422">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23a168c9-adcd-4923-b789-fb9d3eb6ef72"/>
+				</reportElement>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="40" height="30" uuid="cffafb7a-d5df-4227-89a3-202ecd284367">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="05581cc1-6501-4d52-939f-fa5e245e048a"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[State]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="0" width="67" height="30" uuid="72a22894-39eb-4cb5-b1dd-b3253558b038">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e819acb0-4eb4-488c-a0e8-f7e03744bb92"/>
+				</reportElement>
+				<text><![CDATA[Job Size]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="0" width="70" height="30" uuid="ab9886f6-fd4d-41ed-8ee0-03f2b6f226cb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf4552ad-d7fd-4f5b-93c1-c295c11dff24"/>
+				</reportElement>
+				<text><![CDATA[Job Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="650" y="0" width="100" height="30" uuid="58587f44-d638-43c2-ada8-7e1c3fd42563">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a045e02-c9bf-4890-a860-f2ea5f740b22"/>
+				</reportElement>
+				<text><![CDATA[Job Type]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="40" height="30" uuid="cced72c6-b7ef-49be-b3ee-a6e20c5b804b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79909f52-ef61-44d6-89d9-487b2ce22e51"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Job Number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="80" height="30" uuid="09e8de61-5f7b-4382-aa97-9c00e2067ec8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6daa40c4-3242-457b-8887-f7701cbdde1f"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="100" height="30" uuid="3f112ae8-0478-4b05-9f76-46acf48d97b9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e098972-bae7-4146-ad8f-774c987a6e07"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="80" height="30" uuid="f62b8744-4be8-4617-aafe-c2c43bbaf428">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd72a6c6-e8a0-4f93-89a9-b39fdf5c2540"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{City}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="40" height="30" uuid="c2d630d3-a12e-4a54-9e89-ee7cef2e9675">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="022f7396-f344-4705-bd9b-cebec4d0a82f"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Zipcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="53" height="30" uuid="0172f66a-e2b7-4ce1-bf86-391085076cc1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23a168c9-adcd-4923-b789-fb9d3eb6ef72"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Country}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="40" height="30" uuid="52cffdcd-00cb-4d59-baab-76a1afdf66ff">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="05581cc1-6501-4d52-939f-fa5e245e048a"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{State}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="67" height="30" uuid="9b945f62-99cb-4969-b797-79bb9b646ae6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e819acb0-4eb4-488c-a0e8-f7e03744bb92"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Job Size}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="0" width="70" height="30" uuid="864e0716-f31d-4286-8e35-14403c297698">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf4552ad-d7fd-4f5b-93c1-c295c11dff24"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Job Status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="650" y="0" width="100" height="30" uuid="10b21858-baa0-472a-9c14-7ca6ec211047">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a045e02-c9bf-4890-a860-f2ea5f740b22"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Job Type}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="730" y="0" width="40" height="30" uuid="8b51666f-5d53-4e6f-8cd0-a9146d35928a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

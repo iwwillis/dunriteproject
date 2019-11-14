@@ -27,19 +27,19 @@
                            </styleClass></Button>
                         <TableView fx:id="customerTV" editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="929.0">
                           <columns>
-                            <TableColumn fx:id="colOne" prefWidth="45.60000538825989" styleClass="tealbg2" text="ID" />
-                            <TableColumn fx:id="colTwo" prefWidth="104.79999160766602" styleClass="tealbg2" text="First Name" />
-                              <TableColumn fx:id="colThree" prefWidth="75.0" styleClass="tealbg2" text="Last Name" />
-                              <TableColumn fx:id="colThirteen" prefWidth="80.39994812011719" styleClass="tealbg2" text="Organization" />
-                              <TableColumn fx:id="colFour" prefWidth="117.20001220703125" styleClass="tealbg2" text="Street" />
-                              <TableColumn fx:id="colFive" prefWidth="59.20001220703125" styleClass="tealbg2" text="City" />
-                              <TableColumn fx:id="colSix" prefWidth="45.20001220703125" styleClass="tealbg2" text="State" />
-                              <TableColumn fx:id="colSeven" prefWidth="75.99996948242188" styleClass="tealbg2" text="Zipcode" />
-                              <TableColumn fx:id="colEight" prefWidth="58.4000244140625" styleClass="tealbg2" text="Country" />
-                              <TableColumn fx:id="colNine" prefWidth="92.0" styleClass="tealbg2" text="Phone" />
-                              <TableColumn fx:id="colTen" prefWidth="75.0" styleClass="tealbg2" text="Email" />
-                              <TableColumn fx:id="colEleven" prefWidth="50.00006103515625" styleClass="tealbg2" text="Type" />
-                              <TableColumn fx:id="colTwelve" prefWidth="49.5999755859375" styleClass="tealbg2" text="Status" />
+                            <TableColumn fx:id="colOne" prefWidth="45.60000538825989" text="ID" />
+                            <TableColumn fx:id="colTwo" prefWidth="104.79999160766602" text="First Name" />
+                              <TableColumn fx:id="colThree" prefWidth="75.0" text="Last Name" />
+                              <TableColumn fx:id="colThirteen" prefWidth="80.39994812011719" text="Organization" />
+                              <TableColumn fx:id="colFour" prefWidth="117.20001220703125" text="Street" />
+                              <TableColumn fx:id="colFive" prefWidth="59.20001220703125" text="City" />
+                              <TableColumn fx:id="colSix" prefWidth="45.20001220703125" text="State" />
+                              <TableColumn fx:id="colSeven" prefWidth="75.99996948242188" text="Zipcode" />
+                              <TableColumn fx:id="colEight" prefWidth="58.4000244140625" text="Country" />
+                              <TableColumn fx:id="colNine" prefWidth="92.0" text="Phone" />
+                              <TableColumn fx:id="colTen" prefWidth="75.0" text="Email" />
+                              <TableColumn fx:id="colEleven" prefWidth="50.00006103515625" text="Type" />
+                              <TableColumn fx:id="colTwelve" prefWidth="49.5999755859375" text="Status" />
                           </columns>
                         </TableView>
                         <Button fx:id="editButton" layoutX="837.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">

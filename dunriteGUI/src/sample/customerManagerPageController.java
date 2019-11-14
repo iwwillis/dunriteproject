@@ -66,7 +66,6 @@ public class customerManagerPageController implements Initializable {
 
     private DBConnection db;
     private ObservableList<Customer> data;
-    private ObservableList<Integer> CountryId;
     private ObservableList<Integer> StateId;
     private ObservableList<Integer> customerStatusId;
     private ObservableList<Integer> customerTypeId;
@@ -148,7 +147,6 @@ public class customerManagerPageController implements Initializable {
 
     @FXML
     protected void handleSaveButton(ActionEvent event){
-        tabTwo.setText("Add New Customer");
         try{
 
             int cId = Integer.parseInt(customerIdTF.getText());
@@ -427,7 +425,7 @@ public class customerManagerPageController implements Initializable {
             e.printStackTrace();
         }
         customerTypeIdCB.setItems(null);
-        customerTypeIdCB.setItems(customerStatusId);
+        customerTypeIdCB.setItems(customerTypeId);
     }
 
     private void clearFields() {

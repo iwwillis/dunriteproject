@@ -20,13 +20,13 @@
                <content>
                   <AnchorPane prefHeight="400.0" prefWidth="604.0">
                      <children>
-                        <Button fx:id="editButton" layoutX="959.0" layoutY="292.0" mnemonicParsing="false" text="Edit">
+                        <Button fx:id="editButton" layoutX="959.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
                            <styleClass>
                               <String fx:value="redtxt" />
                               <String fx:value="whitebg" />
                            </styleClass></Button>
                         <Label layoutX="27.0" layoutY="27.0" styleClass="tealtxt" text="Employee Manager" />
-                        <Button fx:id="deleteButton" layoutX="861.0" layoutY="292.0" mnemonicParsing="false" text="Delete">
+                        <Button fx:id="deleteButton" layoutX="861.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete">
                            <styleClass>
                               <String fx:value="redtxt" />
                               <String fx:value="whitebg" />
@@ -75,7 +75,7 @@
                         <TextField fx:id="emailTF" layoutX="459.0" layoutY="208.0" />
                         <Label layoutX="80.0" layoutY="261.0" prefHeight="25.0" prefWidth="112.0" styleClass="tealtxt" text="Employee Status ID:" />
                         <Label layoutX="359.0" layoutY="265.0" styleClass="tealtxt" text="Employee Type ID:" />
-                        <Button fx:id="addNewEmployee" layoutX="495.0" layoutY="303.0" mnemonicParsing="false" text="Add">
+                        <Button fx:id="addNewEmployee" layoutX="495.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
@@ -84,22 +84,23 @@
                         <Label layoutX="801.0" layoutY="212.0" styleClass="tealtxt" text="Leave Date:" />
                         <DatePicker fx:id="hireDateDP" layoutX="707.0" layoutY="208.0" prefHeight="25.0" prefWidth="86.0" />
                         <DatePicker fx:id="leaveDateDP" layoutX="869.0" layoutY="208.0" prefHeight="25.0" prefWidth="84.0" />
-                        <Button fx:id="saveButton" layoutX="418.0" layoutY="303.0" mnemonicParsing="false" text="Save">
+                        <Button fx:id="saveButton" layoutX="418.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="cancelButton" layoutX="349.0" layoutY="303.0" mnemonicParsing="false" text="Cancel">
+                        <Button fx:id="cancelButton" layoutX="349.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
                            </styleClass>
                         </Button>
                         <TextField fx:id="countryTF" layoutX="459.0" layoutY="152.0" />
-                        <ComboBox layoutX="707.0" layoutY="104.0" prefHeight="25.0" prefWidth="87.0" />
+                        <ComboBox fx:id="stateCB" layoutX="707.0" layoutY="104.0" prefHeight="25.0" prefWidth="87.0" />
                         <ComboBox fx:id="empTypeIdCB" layoutX="459.0" layoutY="261.0" prefWidth="150.0" />
                         <ComboBox fx:id="empStatusIdCB" layoutX="187.0" layoutY="261.0" prefHeight="25.0" prefWidth="131.0" />
+                        <TextField fx:id="employeeNumberTF" layoutX="169.0" layoutY="14.0" prefHeight="25.0" prefWidth="41.0" />
                      </children>
                   </AnchorPane>
               </content>

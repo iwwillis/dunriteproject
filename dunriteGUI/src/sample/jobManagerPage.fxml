@@ -2,7 +2,8 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -13,37 +14,49 @@
 
 <AnchorPane prefHeight="539.0" prefWidth="1049.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.jobManagerController">
    <children>
-      <TabPane layoutY="65.0" prefHeight="372.0" prefWidth="1049.0">
+      <TabPane fx:id="jobTP" layoutY="65.0" prefHeight="398.0" prefWidth="1170.0">
          <tabs>
-            <Tab text="Job Manager">
+            <Tab fx:id="tabOne" text="Job Manager">
                <content>
                   <AnchorPane prefHeight="400.0" prefWidth="604.0">
                      <children>
                         <Label layoutX="27.0" layoutY="27.0" text="Job Manager" />
-                        <TableView fx:id="jobTV" editable="true" layoutY="27.0" prefHeight="278.0" prefWidth="1054.0">
+                        <TableView fx:id="jobTV" editable="true" layoutY="27.0" prefHeight="278.0" prefWidth="1130.0">
                           <columns>
-                            <TableColumn fx:id="jobNumberColumn" prefWidth="75.0" styleClass="tealbg2" text="ID" />
-                              <TableColumn fx:id="streetAddressColumn" prefWidth="75.0" styleClass="tealbg2" text="Street" />
-                              <TableColumn fx:id="jobCityColumn" prefWidth="75.0" styleClass="tealbg2" text="City" />
-                              <TableColumn fx:id="stateColumn" prefWidth="75.0" styleClass="tealbg2" text="State" />
-                              <TableColumn fx:id="jobZipcodeColumn" prefWidth="75.0" styleClass="tealbg2" text="Zipcode" />
-                              <TableColumn fx:id="countryColumn" prefWidth="75.0" styleClass="tealbg2" text="Country" />
-                              <TableColumn fx:id="startDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Start Date" />
-                              <TableColumn fx:id="endDateColumn" prefWidth="75.0" styleClass="tealbg2" text="End Date" />
-                              <TableColumn fx:id="quoteDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Quote Date" />
-                              <TableColumn fx:id="expirationDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Expiration" />
-                              <TableColumn fx:id="invoiceDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Invoice Date" />
-                              <TableColumn fx:id="jobSizeIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Job Size ID" />
-                              <TableColumn fx:id="jobStatusIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Job Status ID" />
-                              <TableColumn fx:id="customerIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Customer ID" />
-                              <TableColumn fx:id="jobTypeIdColumn" prefWidth="75.0" styleClass="tealbg2" text="Job Type ID" />
+                            <TableColumn fx:id="colOne" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="colTwo" prefWidth="75.0" text="Street" />
+                              <TableColumn fx:id="colThree" prefWidth="75.0" text="City" />
+                              <TableColumn fx:id="colFour" prefWidth="75.0" text="State" />
+                              <TableColumn fx:id="colFive" prefWidth="75.0" text="Zipcode" />
+                              <TableColumn fx:id="colSix" prefWidth="75.0" text="Country" />
+                              <TableColumn fx:id="colSeven" prefWidth="75.0" text="Start Date" />
+                              <TableColumn fx:id="colEight" prefWidth="75.0" text="End Date" />
+                              <TableColumn fx:id="colNine" prefWidth="75.0" text="Quote Date" />
+                              <TableColumn fx:id="colTen" prefWidth="75.0" text="Expiration" />
+                              <TableColumn fx:id="colEleven" prefWidth="75.0" text="Invoice Date" />
+                              <TableColumn fx:id="colTwelve" prefWidth="75.0" text="Job Size ID" />
+                              <TableColumn fx:id="colThirteen" prefWidth="75.0" text="Job Status ID" />
+                              <TableColumn fx:id="colFourteen" prefWidth="75.0" text="Customer ID" />
+                              <TableColumn fx:id="colFifteen" prefWidth="75.0" text="Job Type ID" />
                           </columns>
                         </TableView>
+                        <Button fx:id="deleteButton" layoutX="854.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete">
+                           <styleClass>
+                              <String fx:value="redtxt" />
+                              <String fx:value="whitebg" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="editButton" layoutX="958.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
+                           <styleClass>
+                              <String fx:value="redtxt" />
+                              <String fx:value="whitebg" />
+                           </styleClass>
+                        </Button>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Add New Job">
+            <Tab fx:id="tabTwo" text="Add New Job">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -52,11 +65,48 @@
                         <Label layoutX="337.0" layoutY="46.0" styleClass="tealtxt" text="City" />
                         <TextField fx:id="jobCityTF" layoutX="376.0" layoutY="42.0" />
                         <Label layoutX="569.0" layoutY="46.0" styleClass="tealtxt" text="State" />
-                        <ChoiceBox fx:id="stateCB" layoutX="605.0" layoutY="42.0" prefWidth="150.0" />
                         <Label layoutX="72.0" layoutY="89.0" styleClass="tealtxt" text="Zipcode" />
                         <TextField fx:id="jobZipcodeTF" layoutX="147.0" layoutY="93.0" />
                         <Label layoutX="326.0" layoutY="89.0" styleClass="tealtxt" text="Country" />
-                        <ChoiceBox fx:id="countryCB" layoutX="376.0" layoutY="85.0" prefWidth="150.0" />
+                        <ComboBox fx:id="stateCB" layoutX="607.0" layoutY="42.0" prefWidth="150.0" />
+                        <Label layoutX="79.0" layoutY="140.0" styleClass="tealtxt" text="Start" />
+                        <Label layoutX="333.0" layoutY="140.0" styleClass="tealtxt" text="End" />
+                        <DatePicker fx:id="startDP" layoutX="143.0" layoutY="136.0" prefHeight="25.0" prefWidth="153.0" />
+                        <DatePicker fx:id="endDP" layoutX="374.0" layoutY="136.0" prefHeight="25.0" prefWidth="159.0" />
+                        <Label layoutX="80.0" layoutY="187.0" styleClass="tealtxt" text="Quote" />
+                        <Label layoutX="333.0" layoutY="187.0" styleClass="tealtxt" text="Expiration" />
+                        <DatePicker fx:id="quoteStartDP" layoutX="135.0" layoutY="183.0" />
+                        <DatePicker fx:id="expirationDP" layoutX="391.0" layoutY="183.0" prefHeight="25.0" prefWidth="150.0" />
+                        <DatePicker fx:id="invoiceDP" layoutX="133.0" layoutY="230.0" />
+                        <Label layoutX="83.0" layoutY="234.0" styleClass="tealtxt" text="Invoice" />
+                        <Label layoutX="569.0" layoutY="140.0" styleClass="tealtxt" text="Job Size ID" />
+                        <Label layoutX="569.0" layoutY="187.0" styleClass="tealtxt" text="Customer ID" />
+                        <ComboBox fx:id="jobSizeIdCB" layoutX="647.0" layoutY="136.0" prefHeight="25.0" prefWidth="110.0" />
+                        <ComboBox fx:id="customerIdCB" layoutX="645.0" layoutY="183.0" prefHeight="25.0" prefWidth="112.0" />
+                        <Label layoutX="794.0" layoutY="140.0" styleClass="tealtxt" text="Job Status ID" />
+                        <Label layoutX="794.0" layoutY="187.0" styleClass="tealtxt" text="Job Type ID" />
+                        <ComboBox fx:id="jobStatusIdCB" layoutX="875.0" layoutY="136.0" prefHeight="25.0" prefWidth="118.0" />
+                        <ComboBox fx:id="jobTypeIdCB" layoutX="875.0" layoutY="183.0" prefHeight="25.0" prefWidth="117.0" />
+                        <Button fx:id="addButton" layoutX="647.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="saveButton" layoutX="576.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="cancelButton" layoutX="499.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass>
+                        </Button>
+                        <TextField fx:id="jobNumberTF" layoutX="148.0" layoutY="21.0" />
+                        <TextField fx:id="countryTF" layoutX="376.0" layoutY="85.0" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -71,16 +121,6 @@
          <styleClass>
             <String fx:value="redbg" />
             <String fx:value="whitetxt" />
-         </styleClass></Button>
-      <Button fx:id="deleteButton" layoutX="754.0" layoutY="486.0" mnemonicParsing="false" text="Delete">
-         <styleClass>
-            <String fx:value="redtxt" />
-            <String fx:value="whitebg" />
-         </styleClass></Button>
-      <Button fx:id="saveButton" layoutX="844.0" layoutY="486.0" mnemonicParsing="false" text="Save">
-         <styleClass>
-            <String fx:value="redtxt" />
-            <String fx:value="whitebg" />
          </styleClass></Button>
    </children>
 </AnchorPane>

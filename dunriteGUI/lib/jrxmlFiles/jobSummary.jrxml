@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProfitMarginReport" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51f92c12-f7d6-4952-9b1a-bb92caab21b5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Test2"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+ts3.Job_Number AS 'Job ID',
+CONCAT(c.Customer_First_Name, ' ', c.Customer_Last_Name) AS 'Customer Name',
+j.Job_City AS 'City',
+st.State_Name AS 'State',
+co.Country_Abbreviation AS 'Country',
+FORMAT (CAST((ts3.[Admin Overhead] * 1.00) AS DECIMAL (10,2)), 'C', 'en-US') AS 'Overhead',
+FORMAT (ts3.[Labor Cost], 'C', 'en-US') AS 'Labor Cost',
+FORMAT (ts3.[Material Cost], 'C', 'en-US') AS 'Material Cost',
+FORMAT ((ts3.[Admin Overhead]+ts3.[Labor Cost]+ts3.[Material Cost]), 'C', 'en-US') AS 'Total Cost',
+FORMAT (p.Original_Total_Due - (ts3.[Admin Overhead]+ts3.[Labor Cost]+ts3.[Material Cost]), 'C', 'en-US') AS 'Profit',
+FORMAT (((p.Original_Total_Due - (ts3.[Admin Overhead]+ts3.[Labor Cost]+ts3.[Material Cost]))/p.Original_Total_Due), 'P') AS 'Profit Margin',
+jt.Job_Type AS 'Job Type'
+
+FROM
+CUSTOMER c
+JOIN JOB j ON c.Customer_ID = j.Customer_ID
+JOIN STATE_TERRITORY st ON st.State_ID = j.State_ID
+JOIN COUNTRY co ON co.Country_ID = j.Country_ID
+JOIN PAYMENT p ON p.Job_Number = j.Job_Number
+JOIN JOB_TYPE jt ON jt.Job_Type_ID = j.Job_Type_ID
+JOIN JOB_MATERIAL jm On jm.Job_Number = j.Job_Number
+INNER JOIN
+(
+SELECT
+ts2.Job_Number,
+SUM(ts2.[Admin Overhead]) AS 'Admin Overhead',
+SUM(ts2.[Labor Cost] * 15.00) AS 'Labor Cost',
+SUM(ts2.[Material Cost]) AS 'Material Cost'
+
+FROM (
+SELECT
+j.Job_Number,
+ts.Timesheet_ID,
+ts.Jobs_Worked AS 'Labor Cost',
+ts.Hours_Worked AS 'Admin Overhead',
+jtl.Job_Task_Line_Cost AS 'Material Cost'
+
+FROM(
+JOB_TIMESHEET jts
+JOIN TIMESHEET ts ON ts.Timesheet_ID = jts.Timesheet_ID
+JOIN JOB j ON j.Job_Number = jts.Job_Number
+JOIN JOB_TASK_LINE jtl ON jtl.Job_Number = j.Job_Number
+JOIN CUSTOMER c ON j.Customer_ID = c.Customer_ID)
+)ts2
+
+GROUP BY ts2.Job_Number
+)AS ts3
+ON ts3.Job_Number = j.Job_Number
+
+ORDER BY ts3.Job_Number]]>
+	</queryString>
+	<field name="Job ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Job ID"/>
+	</field>
+	<field name="Customer Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Customer Name"/>
+	</field>
+	<field name="City" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="City"/>
+	</field>
+	<field name="State" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="State"/>
+	</field>
+	<field name="Country" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Country"/>
+	</field>
+	<field name="Overhead" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Overhead"/>
+	</field>
+	<field name="Labor Cost" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Labor Cost"/>
+	</field>
+	<field name="Material Cost" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Material Cost"/>
+	</field>
+	<field name="Total Cost" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Total Cost"/>
+	</field>
+	<field name="Profit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Profit"/>
+	</field>
+	<field name="Profit Margin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Profit Margin"/>
+	</field>
+	<field name="Job Type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Job Type"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="260" y="0" width="243" height="30" uuid="5ba38f8e-5292-4590-8993-47a42027cacf"/>
+				<textElement>
+					<font fontName="Arial Black" size="20"/>
+				</textElement>
+				<text><![CDATA[Job Summary Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="40" height="30" uuid="6e4ac4aa-a08a-494c-be55-dff98d632782">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d8fe4798-787a-4dc2-85e6-c53d9096fc63"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[Job ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="3" width="80" height="30" uuid="a59dbc10-1aa0-4b6e-859c-d14c727e62ff">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4a417934-3e58-492f-8cee-ce919e6e1200"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="3" width="60" height="30" uuid="2fdff228-aa93-42cb-acb0-5c069fa5e912">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58183099-5725-4d72-8894-7e60aeb38465"/>
+				</reportElement>
+				<text><![CDATA[Overhead]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="3" width="70" height="30" uuid="89ae93af-de95-4757-9c22-19c3f82a8009">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe757739-9204-48c5-bba7-d0a8eae58839"/>
+				</reportElement>
+				<text><![CDATA[Labor Cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="3" width="60" height="30" uuid="1e210cdc-23e5-412b-817f-4ed9fe8eb125">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62a652e4-c1c2-4ffb-a258-5be761eb666d"/>
+				</reportElement>
+				<text><![CDATA[Material Cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="3" width="50" height="30" uuid="8b74c306-3249-4f60-a3ad-8e619de1d59a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="76f08fdb-fcb4-4c5a-be66-c0b0f006f552"/>
+				</reportElement>
+				<text><![CDATA[Total Cost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="3" width="100" height="30" uuid="c5e89774-eeaa-4f75-8243-07a2d4348781">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ab8fc90-65ba-43c8-83f2-711101c9424a"/>
+				</reportElement>
+				<text><![CDATA[Profit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="540" y="3" width="100" height="30" uuid="eff23dd3-13bd-4eae-b04a-6df9c13d25f1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d149f647-3916-48e6-b354-29f7780e4f83"/>
+				</reportElement>
+				<text><![CDATA[Profit Margin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="3" width="100" height="30" uuid="f63d794c-a9a3-4cdd-b069-d7c254669ed2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd47a496-639f-4f5d-9ceb-29c1d1bcaef6"/>
+				</reportElement>
+				<text><![CDATA[Job Type]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="20" height="30" uuid="dee24a5a-7382-401c-83d0-4f4f1ffbb037">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d8fe4798-787a-4dc2-85e6-c53d9096fc63"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Job ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="100" height="30" uuid="3cee7773-8fe8-44e3-b029-fdb90cbedf80">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4a417934-3e58-492f-8cee-ce919e6e1200"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Customer Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="60" height="30" uuid="98f532de-e806-4a1e-adf4-a7c84b75f606">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58183099-5725-4d72-8894-7e60aeb38465"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Overhead}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="70" height="30" uuid="52df4c29-9554-4d73-b736-e04a7a017970">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe757739-9204-48c5-bba7-d0a8eae58839"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Labor Cost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="60" height="30" uuid="6c0cab70-5a6c-4b3c-8615-16fe2244edb6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62a652e4-c1c2-4ffb-a258-5be761eb666d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Material Cost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="50" height="30" uuid="ecdd13d4-9c63-4ac6-8881-660a170441dd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="76f08fdb-fcb4-4c5a-be66-c0b0f006f552"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Total Cost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="100" height="30" uuid="7d384755-43cb-43ad-80d3-0792db310239">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ab8fc90-65ba-43c8-83f2-711101c9424a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Profit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="0" width="100" height="30" uuid="c1efa160-9a15-4864-a0fc-c36712b0b6e9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d149f647-3916-48e6-b354-29f7780e4f83"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Profit Margin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="660" y="0" width="100" height="30" uuid="0371765a-a4ee-48d2-860d-da7337a192c9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd47a496-639f-4f5d-9ceb-29c1d1bcaef6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Job Type}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="18" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="730" y="0" width="40" height="20" uuid="6cd646f0-efa8-45aa-a290-4e7a5b67b3a9"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="17" splitType="Stretch"/>
+	</summary>
+</jasperReport>

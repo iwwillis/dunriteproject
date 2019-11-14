@@ -2,7 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -13,35 +13,36 @@
 
 <AnchorPane prefHeight="464.0" prefWidth="902.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.customerManagerPageController">
    <children>
-      <TabPane layoutY="65.0" prefHeight="372.0" prefWidth="905.0">
+      <TabPane fx:id="customerTP" layoutY="65.0" prefHeight="372.0" prefWidth="993.0">
          <tabs>
-            <Tab text="Customer Manager">
+            <Tab fx:id="tabOne" text="Customer Manager">
                <content>
                   <AnchorPane prefHeight="400.0" prefWidth="604.0">
                      <children>
                         <Label layoutX="27.0" layoutY="27.0" styleClass="tealtxt" text="Customer Manager" />
-                        <Button fx:id="customerManagerDelete" layoutX="767.0" layoutY="292.0" mnemonicParsing="false" text="Delete">
+                        <Button fx:id="customerManagerDelete" layoutX="767.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
                            </styleClass></Button>
-                        <TableView editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="906.0">
+                        <TableView fx:id="customerTV" editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="929.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" styleClass="tealbg2" text="ID" />
-                            <TableColumn prefWidth="75.0" styleClass="tealbg2" text="First Name" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Last Name" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Street" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="City" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="State" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Zipcode" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Country" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Phone" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Email" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Type" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Status" />
+                            <TableColumn fx:id="colOne" prefWidth="45.60000538825989" text="ID" />
+                            <TableColumn fx:id="colTwo" prefWidth="104.79999160766602" text="First Name" />
+                              <TableColumn fx:id="colThree" prefWidth="75.0" text="Last Name" />
+                              <TableColumn fx:id="colThirteen" prefWidth="80.39994812011719" text="Organization" />
+                              <TableColumn fx:id="colFour" prefWidth="117.20001220703125" text="Street" />
+                              <TableColumn fx:id="colFive" prefWidth="59.20001220703125" text="City" />
+                              <TableColumn fx:id="colSix" prefWidth="45.20001220703125" text="State" />
+                              <TableColumn fx:id="colSeven" prefWidth="75.99996948242188" text="Zipcode" />
+                              <TableColumn fx:id="colEight" prefWidth="58.4000244140625" text="Country" />
+                              <TableColumn fx:id="colNine" prefWidth="92.0" text="Phone" />
+                              <TableColumn fx:id="colTen" prefWidth="75.0" text="Email" />
+                              <TableColumn fx:id="colEleven" prefWidth="50.00006103515625" text="Type" />
+                              <TableColumn fx:id="colTwelve" prefWidth="49.5999755859375" text="Status" />
                           </columns>
                         </TableView>
-                        <Button fx:id="customerManagerSave" layoutX="837.0" layoutY="292.0" mnemonicParsing="false" text="Save">
+                        <Button fx:id="editButton" layoutX="837.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
@@ -50,37 +51,52 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Add New Customer">
+            <Tab fx:id="tabTwo" text="Add New Customer">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Label layoutX="80.0" layoutY="58.0" styleClass="tealtxt" text="First Name:" />
-                        <Label layoutX="366.0" layoutY="58.0" styleClass="tealtxt" text="Last Name:" />
-                        <Label layoutX="385.0" layoutY="108.0" styleClass="tealtxt" text="City:" />
+                        <Label layoutX="379.0" layoutY="58.0" styleClass="tealtxt" text="Last Name:" />
+                        <Label layoutX="379.0" layoutY="108.0" styleClass="tealtxt" text="City:" />
                         <Label layoutX="80.0" layoutY="108.0" styleClass="tealtxt" text="Address:" />
-                        <TextField fx:id="firstNameTF" layoutX="169.0" layoutY="54.0" />
-                        <TextField fx:id="lastNameTF" layoutX="450.0" layoutY="54.0" />
-                        <TextField fx:id="customerAddressTF" layoutX="142.0" layoutY="104.0" prefHeight="25.0" prefWidth="202.0" />
-                        <TextField fx:id="customerCityTF" layoutX="450.0" layoutY="104.0" />
-                        <Label layoutX="644.0" layoutY="108.0" styleClass="tealtxt" text="State:" />
-                        <ChoiceBox fx:id="customerStateTF" layoutX="699.0" layoutY="104.0" prefWidth="150.0" />
+                        <TextField fx:id="firstNameTF" layoutX="191.0" layoutY="54.0" />
+                        <TextField fx:id="lastNameTF" layoutX="483.0" layoutY="54.0" />
+                        <TextField fx:id="customerAddressTF" layoutX="191.0" layoutY="104.0" prefHeight="25.0" prefWidth="145.0" />
+                        <TextField fx:id="customerCityTF" layoutX="483.0" layoutY="104.0" />
+                        <Label layoutX="660.0" layoutY="108.0" styleClass="tealtxt" text="State:" />
                         <Label layoutX="80.0" layoutY="156.0" styleClass="tealtxt" text="Zipcode:" />
-                        <TextField fx:id="customerZipcodeTF" layoutX="142.0" layoutY="152.0" />
-                        <Label layoutX="344.0" layoutY="156.0" styleClass="tealtxt" text="Country:" />
-                        <ChoiceBox fx:id="customerCountryCB" layoutX="408.0" layoutY="152.0" prefWidth="150.0" />
-                        <Label layoutX="70.0" layoutY="212.0" styleClass="tealtxt" text="Phone Number:" />
-                        <TextField fx:id="phoneNumberTF" layoutX="169.0" layoutY="208.0" />
-                        <Label layoutX="353.0" layoutY="212.0" styleClass="tealtxt" text="Email:" />
-                        <TextField fx:id="emailTF" layoutX="409.0" layoutY="208.0" />
-                        <Label layoutX="58.0" layoutY="265.0" styleClass="tealtxt" text="Customer Status ID:" />
-                        <Label layoutX="359.0" layoutY="265.0" styleClass="tealtxt" text="Customer Type ID:" />
-                        <Button fx:id="addNewCustomer" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" text="Add">
+                        <TextField fx:id="customerZipcodeTF" layoutX="191.0" layoutY="152.0" />
+                        <Label layoutX="379.0" layoutY="156.0" styleClass="tealtxt" text="Country:" />
+                        <Label layoutX="80.0" layoutY="212.0" styleClass="tealtxt" text="Phone Number:" />
+                        <TextField fx:id="phoneNumberTF" layoutX="191.0" layoutY="208.0" prefHeight="25.0" prefWidth="146.0" />
+                        <Label layoutX="379.0" layoutY="212.0" styleClass="tealtxt" text="Email:" />
+                        <TextField fx:id="emailTF" layoutX="483.0" layoutY="208.0" />
+                        <Label layoutX="80.0" layoutY="265.0" styleClass="tealtxt" text="Customer Status ID:" />
+                        <Label layoutX="379.0" layoutY="265.0" styleClass="tealtxt" text="Customer Type ID:" />
+                        <Button fx:id="addNewCustomer" layoutX="431.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
                            </styleClass></Button>
-                        <ChoiceBox fx:id="employeeStatusCB" layoutX="182.0" layoutY="261.0" prefWidth="150.0" />
-                        <ChoiceBox fx:id="employeeTypeCB" layoutX="483.0" layoutY="261.0" prefWidth="150.0" />
+                        <Button fx:id="saveButton" layoutX="368.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="cancelButton" layoutX="291.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass>
+                        </Button>
+                        <ComboBox fx:id="customerStateCB" layoutX="740.0" layoutY="104.0" prefWidth="150.0" />
+                        <ComboBox fx:id="customerTypeIdCB" layoutX="483.0" layoutY="261.0" prefWidth="150.0" />
+                        <ComboBox fx:id="customerStatusIdCB" layoutX="191.0" layoutY="261.0" prefHeight="25.0" prefWidth="104.0" />
+                        <Label layoutX="660.0" layoutY="58.0" styleClass="tealtxt" text="Organization:" />
+                        <TextField fx:id="organizationTF" layoutX="741.0" layoutY="54.0" />
+                        <TextField fx:id="customerIdTF" layoutX="191.0" layoutY="14.0" />
+                        <TextField fx:id="customerCountryTF" layoutX="483.0" layoutY="152.0" />
                      </children>
                   </AnchorPane>
               </content>

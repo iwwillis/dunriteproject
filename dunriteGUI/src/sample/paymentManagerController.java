@@ -247,7 +247,6 @@ public class paymentManagerController implements Initializable {
 
     @FXML
     protected void handleSaveButton(ActionEvent event){
-        switchPaymentTab.setText("Add New Payment");
         try{
 
             int pId = Integer.parseInt(paymentNumberTF.getText());

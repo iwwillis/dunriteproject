@@ -2,7 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -14,80 +14,93 @@
 
 <AnchorPane prefHeight="464.0" prefWidth="1049.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.employeeManagerController">
    <children>
-      <TabPane layoutY="65.0" prefHeight="372.0" prefWidth="1049.0">
+      <TabPane fx:id="employeeTP" layoutY="65.0" prefHeight="372.0" prefWidth="1049.0">
          <tabs>
-            <Tab text="Employee Manager">
+            <Tab fx:id="tabOne" text="Employee Manager">
                <content>
                   <AnchorPane prefHeight="400.0" prefWidth="604.0">
                      <children>
-                        <Button fx:id="employeeManagerSave" layoutX="959.0" layoutY="292.0" mnemonicParsing="false" text="Save">
+                        <Button fx:id="editButton" layoutX="959.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit">
                            <styleClass>
                               <String fx:value="redtxt" />
                               <String fx:value="whitebg" />
                            </styleClass></Button>
                         <Label layoutX="27.0" layoutY="27.0" styleClass="tealtxt" text="Employee Manager" />
-                        <Button fx:id="employeeManagerDelete" layoutX="861.0" layoutY="292.0" mnemonicParsing="false" text="Delete">
+                        <Button fx:id="deleteButton" layoutX="861.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete">
                            <styleClass>
                               <String fx:value="redtxt" />
                               <String fx:value="whitebg" />
                            </styleClass></Button>
-                        <TableView editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="1054.0">
+                        <TableView fx:id="employeeTV" editable="true" layoutX="-2.0" layoutY="70.0" prefHeight="200.0" prefWidth="1054.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" styleClass="tealbg2" text="ID" />
-                            <TableColumn prefWidth="75.0" styleClass="tealbg2" text="First Name" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Last Name" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Street" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="City" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="State" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Zipcode" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Country" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Phone" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Email" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Hire Date" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Leave Date" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Type" />
-                              <TableColumn prefWidth="75.0" styleClass="tealbg2" text="Status" />
+                            <TableColumn fx:id="colOne" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="colTwo" prefWidth="75.0" text="First Name" />
+                              <TableColumn fx:id="colThree" prefWidth="75.0" text="Last Name" />
+                              <TableColumn fx:id="colFour" prefWidth="75.0" text="Street" />
+                              <TableColumn fx:id="colFive" prefWidth="75.0" text="City" />
+                              <TableColumn fx:id="colSix" prefWidth="75.0" text="State" />
+                              <TableColumn fx:id="colSeven" prefWidth="75.0" text="Zipcode" />
+                              <TableColumn fx:id="colEight" prefWidth="75.0" text="Country" />
+                              <TableColumn fx:id="colNine" prefWidth="75.0" text="Phone" />
+                              <TableColumn fx:id="colTen" prefWidth="75.0" text="Email" />
+                              <TableColumn fx:id="colEleven" prefWidth="75.0" text="Hire Date" />
+                              <TableColumn fx:id="colTwelve" prefWidth="75.0" text="Leave Date" />
+                              <TableColumn fx:id="colThirteen" prefWidth="75.0" text="Type" />
+                              <TableColumn fx:id="colFourteen" prefWidth="75.0" text="Status" />
                           </columns>
                         </TableView>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Add New Employee">
+            <Tab fx:id="tabTwo" text="Add New Employee">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Label layoutX="80.0" layoutY="58.0" styleClass="tealtxt" text="First Name:" />
-                        <Label layoutX="366.0" layoutY="58.0" styleClass="tealtxt" text="Last Name:" />
-                        <Label layoutX="385.0" layoutY="108.0" styleClass="tealtxt" text="City:" />
+                        <Label layoutX="359.0" layoutY="58.0" styleClass="tealtxt" text="Last Name:" />
+                        <Label layoutX="359.0" layoutY="108.0" styleClass="tealtxt" text="City:" />
                         <Label layoutX="80.0" layoutY="108.0" styleClass="tealtxt" text="Address:" />
                         <TextField fx:id="firstNameTF" layoutX="169.0" layoutY="54.0" />
-                        <TextField fx:id="lastNameTF" layoutX="450.0" layoutY="54.0" />
-                        <TextField fx:id="employeeAddressTF" layoutX="142.0" layoutY="104.0" prefHeight="25.0" prefWidth="202.0" />
-                        <TextField fx:id="employeeCityTF" layoutX="450.0" layoutY="104.0" />
+                        <TextField fx:id="lastNameTF" layoutX="459.0" layoutY="54.0" />
+                        <TextField fx:id="addressTF" layoutX="169.0" layoutY="104.0" prefHeight="25.0" prefWidth="148.0" />
+                        <TextField fx:id="cityTF" layoutX="459.0" layoutY="104.0" />
                         <Label layoutX="644.0" layoutY="108.0" styleClass="tealtxt" text="State:" />
-                        <ChoiceBox fx:id="employeeStateTF" layoutX="699.0" layoutY="104.0" prefWidth="150.0" />
                         <Label layoutX="80.0" layoutY="156.0" styleClass="tealtxt" text="Zipcode:" />
-                        <TextField fx:id="employeeZipcodeTF" layoutX="142.0" layoutY="152.0" />
-                        <Label layoutX="344.0" layoutY="156.0" styleClass="tealtxt" text="Country:" />
-                        <ChoiceBox fx:id="employeeCountryCB" layoutX="408.0" layoutY="152.0" prefWidth="150.0" />
-                        <Label layoutX="70.0" layoutY="212.0" styleClass="tealtxt" text="Phone Number:" />
+                        <TextField fx:id="zipcodeTF" layoutX="169.0" layoutY="152.0" />
+                        <Label layoutX="359.0" layoutY="156.0" styleClass="tealtxt" text="Country:" />
+                        <Label layoutX="80.0" layoutY="212.0" styleClass="tealtxt" text="Phone Number:" />
                         <TextField fx:id="phoneNumberTF" layoutX="169.0" layoutY="208.0" />
-                        <Label layoutX="353.0" layoutY="212.0" styleClass="tealtxt" text="Email:" />
-                        <TextField fx:id="emailTF" layoutX="409.0" layoutY="208.0" />
-                        <Label layoutX="58.0" layoutY="265.0" styleClass="tealtxt" text="Employee Status ID:" />
+                        <Label layoutX="359.0" layoutY="212.0" styleClass="tealtxt" text="Email:" />
+                        <TextField fx:id="emailTF" layoutX="459.0" layoutY="208.0" />
+                        <Label layoutX="80.0" layoutY="261.0" prefHeight="25.0" prefWidth="112.0" styleClass="tealtxt" text="Employee Status ID:" />
                         <Label layoutX="359.0" layoutY="265.0" styleClass="tealtxt" text="Employee Type ID:" />
-                        <Button fx:id="addNewEmployee" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" text="Add">
+                        <Button fx:id="addNewEmployee" layoutX="495.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add">
                            <styleClass>
                               <String fx:value="whitebg" />
                               <String fx:value="redtxt" />
                            </styleClass></Button>
-                        <ChoiceBox fx:id="employeeStatusCB" layoutX="182.0" layoutY="261.0" prefWidth="150.0" />
-                        <ChoiceBox fx:id="employeeTypeCB" layoutX="483.0" layoutY="261.0" prefWidth="150.0" />
-                        <Label layoutX="582.0" layoutY="212.0" styleClass="tealtxt" text="Hire Date:" />
-                        <Label layoutX="745.0" layoutY="212.0" styleClass="tealtxt" text="Leave Date:" />
-                        <DatePicker fx:id="hireDateDP" layoutX="652.0" layoutY="208.0" prefHeight="25.0" prefWidth="86.0" />
-                        <DatePicker fx:id="leaveDateDP" layoutX="822.0" layoutY="208.0" prefHeight="25.0" prefWidth="84.0" />
+                        <Label layoutX="644.0" layoutY="212.0" styleClass="tealtxt" text="Hire Date:" />
+                        <Label layoutX="801.0" layoutY="212.0" styleClass="tealtxt" text="Leave Date:" />
+                        <DatePicker fx:id="hireDateDP" layoutX="707.0" layoutY="208.0" prefHeight="25.0" prefWidth="86.0" />
+                        <DatePicker fx:id="leaveDateDP" layoutX="869.0" layoutY="208.0" prefHeight="25.0" prefWidth="84.0" />
+                        <Button fx:id="saveButton" layoutX="418.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="cancelButton" layoutX="349.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel">
+                           <styleClass>
+                              <String fx:value="whitebg" />
+                              <String fx:value="redtxt" />
+                           </styleClass>
+                        </Button>
+                        <TextField fx:id="countryTF" layoutX="459.0" layoutY="152.0" />
+                        <ComboBox fx:id="stateCB" layoutX="707.0" layoutY="104.0" prefHeight="25.0" prefWidth="87.0" />
+                        <ComboBox fx:id="empTypeIdCB" layoutX="459.0" layoutY="261.0" prefWidth="150.0" />
+                        <ComboBox fx:id="empStatusIdCB" layoutX="187.0" layoutY="261.0" prefHeight="25.0" prefWidth="131.0" />
+                        <TextField fx:id="employeeNumberTF" layoutX="169.0" layoutY="14.0" prefHeight="25.0" prefWidth="41.0" />
                      </children>
                   </AnchorPane>
               </content>

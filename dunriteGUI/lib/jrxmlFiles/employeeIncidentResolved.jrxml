@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97ebce90-e81d-49a1-8c1b-7632ab5d632d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CIS3365Testing"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT EMPLOYEE_INCIDENT.Employee_Incident_Number AS 'Employee Incident Number',
+	EMPLOYEE_INCIDENT.Employee_Incident_Description AS 'Description',
+	EMPLOYEE_INCIDENT_TYPE.Employee_Incident_Type AS 'Type of Incident',
+	EMPLOYEE_INCIDENT_STATUS.Employee_Incident_Status AS 'Status of Incident'
+
+FROM (EMPLOYEE_INCIDENT 
+LEFT JOIN EMPLOYEE_INCIDENT_TYPE ON EMPLOYEE_INCIDENT_TYPE.Employee_Incident_Type_ID=EMPLOYEE_INCIDENT.Employee_Incident_Type_ID
+LEFT JOIN EMPLOYEE_INCIDENT_STATUS ON EMPLOYEE_INCIDENT_STATUS.Employee_Incident_Status_ID=EMPLOYEE_INCIDENT.Employee_Incident_Status_ID)
+
+WHERE EMPLOYEE_INCIDENT_STATUS.Employee_Incident_Status= 'Resolved'
+
+ORDER BY EMPLOYEE_INCIDENT.Employee_Incident_Number;
+]]>
+	</queryString>
+	<field name="Employee Incident Number" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Employee Incident Number"/>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Description"/>
+	</field>
+	<field name="Type of Incident" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Type of Incident"/>
+	</field>
+	<field name="Status of Incident" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Status of Incident"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="6" width="335" height="30" uuid="b453d643-e56d-47d1-82c2-9ba22de775af"/>
+				<textElement>
+					<font fontName="Arial Black" size="20"/>
+				</textElement>
+				<text><![CDATA[Resolved Employee Incidents]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="130" height="30" uuid="91d968fb-d46b-44ab-b3ac-dca0cf2bd1dc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8f569d81-32c1-47f9-ba50-74e1a00a3a85"/>
+				</reportElement>
+				<text><![CDATA[Employee Incident Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="60" height="30" uuid="0a720e39-9951-40aa-9ea7-bd93a4b2a061">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20d552de-c443-47eb-889c-b2c5f24f02bd"/>
+				</reportElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="100" height="30" uuid="cbb4e4a2-a879-436a-8d6c-d25044649ef6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b81bdab9-150c-42ca-8cb9-b043cf7776b3"/>
+				</reportElement>
+				<text><![CDATA[Type of Incident]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="100" height="30" uuid="bae1c46e-f7ee-43a1-89b7-1781c9d6ab92">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c05320fb-0814-4ce9-967c-4aed0ec63a3a"/>
+				</reportElement>
+				<text><![CDATA[Status of Incident]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="49" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="60" height="30" uuid="dd8f6fe9-900c-4e83-b8b2-127f0c7a4c52">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8f569d81-32c1-47f9-ba50-74e1a00a3a85"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Employee Incident Number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="150" height="49" uuid="c3ffa8b1-6843-4334-9a36-f6fcf45d77f3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20d552de-c443-47eb-889c-b2c5f24f02bd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="100" height="30" uuid="ffebf1f4-6da7-4707-bbbd-2e0ebd4f1c0e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b81bdab9-150c-42ca-8cb9-b043cf7776b3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Type of Incident}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="60" height="30" uuid="ed5a7901-c5aa-4067-8ed1-efe57d5e9ad1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c05320fb-0814-4ce9-967c-4aed0ec63a3a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Status of Incident}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

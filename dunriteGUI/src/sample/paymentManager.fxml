@@ -32,15 +32,15 @@
                            </styleClass></Button>
                         <TableView fx:id="paymentTV" editable="true" layoutX="-2.0" layoutY="70.0" onSort="#handleDeleteButton" prefHeight="200.0" prefWidth="1054.0" styleClass="whitebg">
                           <columns>
-                            <TableColumn fx:id="paymentIdColumn" prefWidth="75.0" styleClass="tealbg2" text="ID" />
-                            <TableColumn fx:id="paymentDateColumn" prefWidth="75.0" styleClass="tealbg2" text="Date" />
-                              <TableColumn fx:id="originalAmountColumn" prefWidth="115.99998474121094" styleClass="tealbg2" text="Original Amount" />
-                              <TableColumn fx:id="paymentAmountColumn" prefWidth="82.39996337890625" styleClass="tealbg2" text="Amount" />
-                              <TableColumn fx:id="paymentRemainingColumn" prefWidth="76.39996337890625" styleClass="tealbg2" text="Remaining" />
-                              <TableColumn fx:id="paymentTermsColumn" prefWidth="115.5999755859375" styleClass="tealbg2" text="Terms" />
-                              <TableColumn fx:id="validationCodeColumn" prefWidth="102.0" styleClass="tealbg2" text="Validation Code" />
-                              <TableColumn fx:id="jobNumberRefColumn" prefWidth="81.99993896484375" styleClass="tealbg2" text="Job Number" />
-                              <TableColumn fx:id="paymentMethodIdRefColumn" prefWidth="124.0" styleClass="tealbg2" text="Payment Method ID" />
+                            <TableColumn fx:id="paymentIdColumn" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="paymentDateColumn" prefWidth="75.0" text="Date" />
+                              <TableColumn fx:id="originalAmountColumn" prefWidth="115.99998474121094" text="Original Amount" />
+                              <TableColumn fx:id="paymentAmountColumn" prefWidth="82.39996337890625" text="Amount" />
+                              <TableColumn fx:id="paymentRemainingColumn" prefWidth="76.39996337890625" text="Remaining" />
+                              <TableColumn fx:id="paymentTermsColumn" prefWidth="115.5999755859375" text="Terms" />
+                              <TableColumn fx:id="validationCodeColumn" prefWidth="102.0" text="Validation Code" />
+                              <TableColumn fx:id="jobNumberRefColumn" prefWidth="81.99993896484375" text="Job Number" />
+                              <TableColumn fx:id="paymentMethodIdRefColumn" prefWidth="124.0" text="Payment Method ID" />
                           </columns>
                         </TableView>
                      </children>

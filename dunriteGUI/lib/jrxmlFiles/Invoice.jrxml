@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="08f6370c-ba85-45f5-873f-d8723f38dba9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Test2"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="468"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="521"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+ts3.Job_Number AS 'Job ID',
+CONCAT(c.Customer_First_Name, ' ', c.Customer_Last_Name) AS 'Customer Name',
+c.Customer_Street_Address AS 'Address',
+CONCAT (j.Job_City, ', ',  st.State_Name, ' ', c.Customer_Zipcode) AS 'City, State and Zipcode',
+co.Country_Abbreviation AS 'Country',
+c.Customer_Phone_Number As 'Phone Number',
+c.Customer_Email_Address AS 'Email Address',
+CONVERT(VARCHAR, GETDATE(), 101) AS 'Date',
+(CONVERT(VARCHAR, (GETDATE() + 30), 101)) AS 'Quote Expiration Date',
+CONVERT(INT, GETDATE(), 101) AS 'Invoice Number',
+CONVERT(INT, GETDATE(), 101) AS 'Quote Number',
+
+
+
+FORMAT (CAST((ts3.[Admin Overhead] * 1.00) AS DECIMAL (10,2)), 'C', 'en-US') AS 'Overhead',
+FORMAT (ts3.[Labor Cost], 'C', 'en-US') AS 'Labor Cost',
+jm.Material_Name AS 'Material Name',
+jm.Material_Quantity AS 'Quantity',
+FORMAT(CAST((jtl.Job_Task_Line_Cost/jm.Material_Quantity)AS DECIMAL(15,2)), 'C', 'en-US') AS 'Unit Price',
+FORMAT (ts3.[Material Cost], 'C', 'en-US') AS 'Material Cost',
+FORMAT ((ts3.[Admin Overhead]+ts3.[Labor Cost]+ts3.[Material Cost]), 'C', 'en-US') AS 'Total Cost',
+FORMAT (p.Original_Total_Due - (ts3.[Admin Overhead]+ts3.[Labor Cost]+ts3.[Material Cost]), 'C', 'en-US') AS 'Profit',
+FORMAT (((p.Original_Total_Due - (ts3.[Admin Overhead]+ts3.[Labor Cost]+ts3.[Material Cost]))/p.Original_Total_Due), 'P') AS 'Profit Margin',
+jt.Job_Type AS 'Job Type'
+
+FROM
+CUSTOMER c
+JOIN JOB j ON c.Customer_ID = j.Customer_ID
+JOIN STATE_TERRITORY st ON st.State_ID = j.State_ID
+JOIN COUNTRY co ON co.Country_ID = j.Country_ID
+JOIN PAYMENT p ON p.Job_Number = j.Job_Number
+JOIN JOB_TYPE jt ON jt.Job_Type_ID = j.Job_Type_ID
+JOIN JOB_MATERIAL jm On jm.Job_Number = j.Job_Number
+JOIN JOB_TASK_LINE jtl ON jtl.Job_Number = j.Job_Number
+
+INNER JOIN
+(
+SELECT
+ts2.Job_Number,
+SUM(ts2.[Admin Overhead]) AS 'Admin Overhead',
+SUM(ts2.[Labor Cost] * 15.00) AS 'Labor Cost',
+SUM(ts2.[Material Cost]) AS 'Material Cost'
+
+FROM (
+SELECT
+j.Job_Number,
+ts.Timesheet_ID,
+ts.Jobs_Worked AS 'Labor Cost',
+ts.Hours_Worked AS 'Admin Overhead',
+jtl.Job_Task_Line_Cost AS 'Material Cost'
+
+FROM(
+JOB_TIMESHEET jts
+JOIN TIMESHEET ts ON ts.Timesheet_ID = jts.Timesheet_ID
+JOIN JOB j ON j.Job_Number = jts.Job_Number
+JOIN JOB_TASK_LINE jtl ON jtl.Job_Number = j.Job_Number
+JOIN CUSTOMER c ON j.Customer_ID = c.Customer_ID)
+)ts2
+
+GROUP BY ts2.Job_Number
+)AS ts3
+ON ts3.Job_Number = j.Job_Number
+
+WHERE ts3.Job_Number =3]]>
+	</queryString>
+	<field name="Job ID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Job ID"/>
+	</field>
+	<field name="Customer Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Customer Name"/>
+	</field>
+	<field name="Address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Address"/>
+	</field>
+	<field name="City, State and Zipcode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="City, State and Zipcode"/>
+	</field>
+	<field name="Country" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Country"/>
+	</field>
+	<field name="Phone Number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Phone Number"/>
+	</field>
+	<field name="Email Address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Email Address"/>
+	</field>
+	<field name="Date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Date"/>
+	</field>
+	<field name="Quote Expiration Date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quote Expiration Date"/>
+	</field>
+	<field name="Invoice Number" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Invoice Number"/>
+	</field>
+	<field name="Quote Number" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Quote Number"/>
+	</field>
+	<field name="Overhead" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Overhead"/>
+	</field>
+	<field name="Labor Cost" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Labor Cost"/>
+	</field>
+	<field name="Material Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Material Name"/>
+	</field>
+	<field name="Quantity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Quantity"/>
+	</field>
+	<field name="Unit Price" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Unit Price"/>
+	</field>
+	<field name="Material Cost" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Material Cost"/>
+	</field>
+	<field name="Total Cost" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Total Cost"/>
+	</field>
+	<field name="Profit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Profit"/>
+	</field>
+	<field name="Profit Margin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Profit Margin"/>
+	</field>
+	<field name="Job Type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Job Type"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<staticText>
+				<reportElement x="223" y="10" width="108" height="40" uuid="2a358573-e014-4617-b4f7-940ed2f1a76e"/>
+				<textElement>
+					<font fontName="Arial Black" size="26"/>
+				</textElement>
+				<text><![CDATA[Invoice]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="135" splitType="Stretch">
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="-5" y="0" width="100" height="20" uuid="027657fa-3827-43c3-bc03-322eda5a0a45"/>
+				<textFieldExpression><![CDATA[$F{Customer Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="-5" y="20" width="100" height="20" uuid="77cb9f24-e529-4aed-87d9-d1f3e96cf5dc"/>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="-5" y="40" width="130" height="20" uuid="12651150-8a45-4de6-a9c9-1365cdfd2a74"/>
+				<textFieldExpression><![CDATA[$F{City, State and Zipcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="-5" y="60" width="130" height="20" uuid="966d894e-749f-4639-a663-5cc51cf656ae"/>
+				<textFieldExpression><![CDATA[$F{Phone Number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="-5" y="80" width="155" height="20" uuid="11a72f2b-7ba9-4d72-aec8-d07523585220"/>
+				<textFieldExpression><![CDATA[$F{Email Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="503" y="0" width="67" height="20" uuid="e6952216-758e-4627-a9d7-7bbd3d4cad92"/>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="22" width="50" height="23" uuid="e082ae96-c6e0-4270-8699-ce78fb81d80d"/>
+				<textFieldExpression><![CDATA[$F{Invoice Number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="467" y="0" width="36" height="20" uuid="caf601ef-b104-4a0b-ae9d-24dc4c7beb2c"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="467" y="23" width="45" height="20" uuid="4ed78485-377a-4947-85a3-25ffd380c50e"/>
+				<text><![CDATA[Invoice #:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="-5" y="0" width="100" height="25" uuid="4e3d9411-ddbe-4199-87a0-dc6c21e340a3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7da88554-e252-412e-b651-9846f0a305a5"/>
+				</reportElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="100" height="25" uuid="60c7622e-daa7-439d-8436-0469f0fc2ab0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a2bc942f-fe9f-490e-8a68-4ff77baada8f"/>
+				</reportElement>
+				<text><![CDATA[Material Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="49" splitType="Stretch">
+			<textField>
+				<reportElement x="-5" y="0" width="100" height="20" uuid="08099446-ac16-47b2-a3e2-b5aceff1acba">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7da88554-e252-412e-b651-9846f0a305a5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="120" height="20" uuid="518b3335-f5d4-4619-8e04-3fd451791f88">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a2bc942f-fe9f-490e-8a68-4ff77baada8f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Material Name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="170" splitType="Stretch">
+			<textField>
+				<reportElement x="490" y="90" width="65" height="20" uuid="fdf0bbb9-3c83-443e-b4de-4d18985787ac"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total Cost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="85" width="100" height="30" uuid="aa46969e-4715-463d-bb91-becf012d6452"/>
+				<textElement>
+					<font fontName="Arial Black" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Cost:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="60" width="80" height="20" uuid="1d82014a-574e-4a84-94ef-51c20ef30bb6"/>
+				<textFieldExpression><![CDATA[$F{Labor Cost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="30" width="68" height="18" uuid="29eb42f5-ab00-46ec-b13e-b43bde48307d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cca1c7f3-3f29-4ffe-804c-a6cc5d6f8dea"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Overhead}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="492" y="1" width="78" height="18" uuid="ea6134e0-eb61-4f83-a320-778b0e23a1af">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="795a06e2-a877-4e56-8fca-5227ed64dd4e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Material Cost}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="405" y="0" width="70" height="20" uuid="05ef9b07-4ed0-4502-89be-b180c2397052">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="795a06e2-a877-4e56-8fca-5227ed64dd4e"/>
+				</reportElement>
+				<text><![CDATA[Material Cost:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="30" width="73" height="18" uuid="702f220b-c382-4e6e-bd93-b9458ba80f30"/>
+				<text><![CDATA[Overhead Cost:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="410" y="60" width="60" height="19" uuid="9c9606a9-c154-4d30-9ad6-1e4cab2e24f2"/>
+				<textFieldExpression><![CDATA["Labor Cost:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-5" y="10" width="385" height="30" uuid="a02b4e08-158d-45f1-808b-ccd8027b224b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice Prepared by: ______________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="48" width="279" height="92" uuid="6e714a86-72dc-4157-aa60-75225943e747"/>
+				<textElement>
+					<font size="12" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[This is a invoice on the goods named, subject to the conditions noted below: (Describe any conditions pertaining to these prices and any additional terms of the agreement. You may want to include contingencies that will affect the invoice.)]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
