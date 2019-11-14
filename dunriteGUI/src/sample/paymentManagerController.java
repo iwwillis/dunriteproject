@@ -298,7 +298,6 @@ public class paymentManagerController implements Initializable {
     }
         finally {
         try { pstmt.close(); } catch (Exception e) { }
-        //try { con.close(); } catch (Exception e) { }
     }
     }
 

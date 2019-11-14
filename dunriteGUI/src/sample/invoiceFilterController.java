@@ -185,7 +185,7 @@ public class invoiceFilterController {
                     "\n" +
                     "GROUP BY ts2.Job_Number\n" +
                     ")AS ts3\n" +
-                    "ON ts3.Job_Number = "+jobId+"";
+                    "ON ts3.Job_Number = "+jobId+";";
             JRDesignQuery query = new JRDesignQuery();
             query.setText(SQL);
             testDesign.setQuery(query);

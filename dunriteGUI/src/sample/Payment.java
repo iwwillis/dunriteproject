@@ -3,8 +3,6 @@ package sample;
 
 import javafx.beans.property.*;
 
-import java.time.LocalDate;
-
 public class Payment {
     private final IntegerProperty paymentNumberId;
     private final StringProperty paymentDate;
